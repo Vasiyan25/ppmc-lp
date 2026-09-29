@@ -1,0 +1,20 @@
+section_key,image_url,alt_text,is_active
+hero,,Hero image for PadmaPriya Multi Choice,true
+product-threads,,Threads and sewing supplies,true
+product-lining,,Lining fabric for tailoring,true
+product-fall,,Saree fall material,true
+product-lace-trims,,Lace and decorative tailoring trims,true
+product-cutters-trimmers,,Fabric cutters and trimmers,true
+product-scissors,,Tailoring scissors,true
+product-machine-oil,,Sewing machine maintenance supplies,true
+featured-01,,Featured tailoring product one,true
+featured-02,,Featured tailoring product two,true
+featured-03,,Featured tailoring product three,true
+featured-04,,Featured tailoring product four,true
+featured-05,,Featured tailoring product five,true
+featured-06,,Featured tailoring product six,true
+service-custom-tailoring,,Custom tailoring service,true
+service-alterations,,Alterations service,true
+service-personalized-designs,,Personalized designs service,true
+service-essentials,,Tailoring essentials service,true
+about,,Tailoring craftsmanship,true

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPMC Admin — Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE; --cream-deep:#F1E8D6; --paper:#FFFDF9;
+    --charcoal:#2A2019; --charcoal-soft:#5C4C3E;
+    --gold:#B58A4A; --gold-light:#D9BC85; --gold-pale:#ECDFC2;
+    --border:#E2D3B2; --danger:#A5432B; --ok:#2D7A47;
+    --font-display:'Cormorant Garamond',serif;
+    --font-ui:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',Arial,sans-serif;
+    --radius:3px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; min-height:100vh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(181,138,74,0.14), transparent 60%),
+      radial-gradient(900px 500px at 110% 110%, rgba(42,32,25,0.08), transparent 60%),
+      linear-gradient(180deg, #FAF6EE 0%, #F1E8D6 100%);
+    color:var(--charcoal);
+    font-family:var(--font-ui);
+    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px;}
+  .stitch{
+    width:100%; height:10px; margin:18px 0 22px;
+    background-image:repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 20px);
+    background-position:center; background-size:20px 1px; background-repeat:repeat-x;
+    background-position-y:center; opacity:.6;
+  }
+  .card{
+    width:100%; max-width:460px;
+    background:var(--paper); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:0 30px 60px -32px rgba(42,32,25,0.28);
+    padding:40px 36px 32px;
+  }
+  .brand-top{ text-align:center; margin-bottom:6px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--font-ui);
+    font-size:12px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+  }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--gold); display:inline-block; }
+  .brand{
+    font-family:var(--font-display); font-weight:500;
+    font-size:40px; line-height:1.05; margin-top:10px;
+  }
+  .brand .accent{ color:var(--gold); font-style:italic;}
+  .sub{
+    margin-top:10px; text-align:center;
+    font-size:13.5px; color:var(--charcoal-soft);
+  }
+  form{ margin-top:8px; }
+  .field{ margin-bottom:18px; }
+  .field label{
+    display:block;
+    font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--charcoal-soft); margin-bottom:8px; font-weight:600;
+    font-family:var(--font-ui);
+  }
+  .field input{
+    width:100%; background:var(--cream);
+    border:1px solid var(--border); border-radius:var(--radius);
+    color:var(--charcoal);
+    padding:13px 14px; font-size:14.5px;
+    transition:border-color .2s ease, box-shadow .2s ease;
+    font-family:var(--font-ui);
+  }
+  .field input:focus{
+    outline:none; border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(181,138,74,0.12);
+  }
+  .field .err{
+    margin-top:8px; font-size:12.5px; color:var(--danger);
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 22px; border-radius:var(--radius); border:1px solid transparent;
+    font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;
+    white-space:nowrap; transition:all .2s ease;
+    font-family:var(--font-ui);
+  }
+  .btn-block{ width:100%; margin-top:6px; }
+  .btn-primary{ background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+  .btn-primary:hover:not(:disabled){ background:var(--gold); border-color:var(--gold); color:var(--charcoal); transform:translateY(-1px);}
+  .btn-primary:disabled{ opacity:.65; cursor:not-allowed;}
+  .btn-outline{ background:transparent; color:var(--charcoal); border-color:var(--charcoal);}
+  .btn-outline:hover:not(:disabled){ border-color:var(--gold); color:var(--gold);}
+  .footer-link{
+    margin-top:18px; text-align:center;
+    font-size:12.5px; color:var(--charcoal-soft);
+  }
+  .footer-link a{ color:var(--gold); border-bottom:1px solid var(--gold-light); padding-bottom:1px;}
+  .note{
+    margin-top:22px; padding:14px 14px; border-radius:var(--radius);
+    background:var(--gold-pale); border:1px solid var(--gold-light);
+    font-size:12.5px; color:#604519; line-height:1.6;
+  }
+  .note b{ color:var(--charcoal);}
+  .spinner{
+    width:14px; height:14px; border:2px solid rgba(250,246,238,0.35);
+    border-top-color:var(--cream); border-radius:50%;
+    animation:spin 0.75s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  @media (max-width:480px){
+    body{ padding:14px;}
+    .card{ padding:30px 22px 26px;}
+    .brand{ font-size:32px;}
+  }
+</style>
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="brand-top">
+      <span class="eyebrow">Admin Access</span>
+      <div class="brand">PadmaPriya <span class="accent">Multi Choice</span></div>
+    </div>
+    <p class="sub">Sign in to manage the boutique catalog, designs and enquiries.</p>
+    <div class="stitch" aria-hidden="true"></div>
+
+    <form id="login-form" novalidate autocomplete="on">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <div class="err" id="email-err" hidden></div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+        <div class="err" id="password-err" hidden></div>
+      </div>
+      <div class="err" id="form-err" style="margin-bottom:14px; display:none; font-size:13px; color:var(--danger);"></div>
+      <button id="login-btn" type="submit" class="btn btn-primary btn-block">
+        <span class="btn-label">Log In</span>
+      </button>
+    </form>
+
+    <div class="note" style="margin-top:22px;">
+      <b>Need an admin account?</b> Admins are created in the Supabase dashboard:
+      <ol style="margin:8px 0 0; padding-left:18px;">
+        <li>Authentication → Users → Add user (email + password).</li>
+        <li>Copy the user UUID.</li>
+        <li>Run the INSERT template inside <code style="background:var(--cream); padding:1px 4px; border-radius:3px;">supabase/seed.sql</code>.</li>
+      </ol>
+    </div>
+
+    <div class="footer-link">
+      <a href="index.html">← Back to boutique</a>
+    </div>
+  </main>
+
+<script type="module">
+  import { showToast } from './src/lib/supabase.js';
+  import { login, redirectIfAlreadyLoggedIn } from './src/lib/auth.js';
+
+  redirectIfAlreadyLoggedIn().catch(()=>{});
+
+  const form = document.getElementById('login-form');
+  const emailEl = document.getElementById('email');
+  const passEl  = document.getElementById('password');
+  const emailErr = document.getElementById('email-err');
+  const passErr  = document.getElementById('password-err');
+  const formErr  = document.getElementById('form-err');
+  const btn = document.getElementById('login-btn');
+
+  function setField(el, elErr, msg){
+    if(msg){ elErr.textContent = msg; elErr.hidden = false; el.setAttribute('aria-invalid','true'); }
+    else { elErr.textContent = ''; elErr.hidden = true; el.removeAttribute('aria-invalid'); }
+  }
+
+  function setLoading(loading){
+    if(loading){
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span class="btn-label">Signing in…</span>';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-label">Log In</span>';
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailEl.value.trim();
+    const password = passEl.value;
+    let ok = true;
+    if(!email){ setField(emailEl, emailErr, 'Please enter your email.'); ok = false; }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setField(emailEl, emailErr, 'That email address doesn\'t look right.'); ok = false; }
+    else setField(emailEl, emailErr, '');
+    if(!password){ setField(passEl, passErr, 'Please enter your password.'); ok = false; }
+    else if(password.length < 6){ setField(passEl, passErr, 'Password must be at least 6 characters.'); ok = false; }
+    else setField(passEl, passErr, '');
+    if(!ok) return;
+
+    formErr.style.display = 'none';
+    setLoading(true);
+    try{
+      const r = await login(email, password);
+      if(r && r.ok){
+        showToast('Signed in successfully. Redirecting to dashboard…', 'success');
+        setTimeout(()=> { window.location.replace('admin.html'); }, 350);
+        return;
+      }
+      const msg = (r && r.error && r.error.message)
+        ? r.error.message
+        : 'Invalid email or password.';
+      formErr.textContent = msg;
+      formErr.style.display = 'block';
+      showToast(msg, 'error');
+    } catch(err){
+      const msg = (err && err.message) ? err.message : 'Unexpected error while signing in.';
+      formErr.textContent = msg;
+      formErr.style.display = 'block';
+      showToast(msg, 'error');
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>
+</body>
+</html>

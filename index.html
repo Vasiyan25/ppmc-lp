@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PadmaPriya Multi Choice — Designs Made For You</title>
+<meta name="description" content="PadmaPriya Multi Choice is a premium Indian boutique offering custom tailoring, ladies clothing, alterations and tailoring essentials — designs made for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============================
+     TOKENS
+     ============================ */
+  :root{
+    --cream:        #FAF6EE;
+    --cream-deep:   #F1E8D6;
+    --paper:        #FFFDF9;
+    --charcoal:     #2A2019;
+    --charcoal-soft:#5C4C3E;
+    --gold:         #B58A4A;
+    --gold-light:   #D9BC85;
+    --gold-pale:    #ECDFC2;
+    --border:       #E2D3B2;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body:    'Jost', sans-serif;
+    --font-ui:      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --max-w: 1220px;
+    --radius: 3px;
+  }
+
+  /* ============================
+     RESET
+     ============================ */
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar{ display:none; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "dlig" 0, "calt" 0, "salt" 0, "swsh" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration:none; }
+  ul{ list-style:none; margin:0; padding:0; }
+  h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 500; color: var(--charcoal); margin:0; }
+  p{ margin:0; }
+  button{ font-family: inherit; cursor:pointer; }
+  section{ position:relative; }
+  :focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  .wrap{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "dlig" 0, "calt" 0, "salt" 0, "swsh" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 26px; height: 1px;
+    background: var(--gold);
+    display:inline-block;
+  }
+
+  /* stitched divider — signature motif referencing tailoring thread */
+  .stitch{
+    width: 100%;
+    height: 10px;
+    background-image: repeating-linear-gradient(
+      90deg, var(--gold) 0 10px, transparent 10px 20px
+    );
+    background-position: center;
+    background-size: 20px 1px;
+    background-repeat: repeat-x;
+    background-position-y: center;
+    opacity: 0.7;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding: 15px 34px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    transition: all .35s ease;
+    white-space: nowrap;
+    font-variant-ligatures: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "calt" 0, "salt" 0, "swsh" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0 !important;
+  }
+  .btn-primary{
+    background: var(--charcoal);
+    color: var(--cream);
+    border-color: var(--charcoal);
+  }
+  .btn-primary:hover{
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+    transform: translateY(-2px);
+  }
+  .btn-outline{
+    background: transparent;
+    color: var(--charcoal);
+    border-color: var(--charcoal);
+  }
+  .btn-outline:hover{
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .btn-ghost-light{
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(250,246,238,0.55);
+  }
+  .btn-ghost-light:hover{
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ============================
+     DECORATIVE "PHOTO" PANELS
+     Hand-built gradient + drape motif in place of photography.
+     Swap any .visual-panel background-image for real studio imagery.
+     ============================ */
+  .visual-panel{
+    position:relative;
+    background: linear-gradient(155deg, #E7D4AC 0%, #C89F63 38%, #8C6A3C 72%, #5E4326 100%);
+    overflow:hidden;
+  }
+  .visual-panel img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .7s ease;
+  }
+  .visual-panel img:not([src]),
+  .service-image:not([src]){ display:none; }
+  .category-card:hover .visual-panel img{
+    transform: scale(1.05);
+  }
+  .visual-panel::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(30,22,15,0.55) 0%, rgba(30,22,15,0.05) 55%);
+  }
+  .monogram{
+    position:absolute;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(250,246,238,0.95);
+    z-index: 2;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 14px rgba(20,14,8,0.55);
+  }
+
+  /* ============================
+     HEADER
+     ============================ */
+  .site-header{
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background: rgba(250,246,238,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height: 92px;
+    gap: 20px;
+    min-width: 0;
+  }
+  .logo{
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .logo .accent{ color: var(--gold); font-style: italic; }
+
+  .main-nav{ min-width: 0; flex-shrink: 1; }
+  .main-nav ul{ display:flex; align-items:center; gap: 40px; flex-wrap: nowrap; }
+  .main-nav li{ flex-shrink: 0; }
+  @media (max-width: 1240px){ .main-nav ul{ gap: 22px; } }
+  .main-nav a{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 13px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--charcoal-soft);
+    position: relative;
+    padding: 6px 0;
+    white-space: nowrap;
+    font-variant-ligatures: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "calt" 0, "salt" 0, "swsh" 0, "ss01" 0, "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0 !important;
+  }
+  .main-nav a::after{
+    content:"";
+    position:absolute; left:0; bottom:0;
+    width:0; height:1px;
+    background: var(--gold);
+    transition: width .3s ease;
+  }
+  .main-nav a:hover{ color: var(--charcoal); }
+  .main-nav a:hover::after{ width:100%; }
+
+  .header-cta{ display:flex; align-items:center; gap: 20px; flex-shrink: 0; }
+  .header-cta .btn{ padding: 12px 24px; }
+
+  /* mobile nav toggle (pure CSS checkbox hack — no JS) */
+  .nav-toggle-label{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    width: 26px;
+    cursor:pointer;
+    z-index: 110;
+    flex-shrink: 0;
+  }
+  .nav-toggle-label span{
+    height:1px;
+    background: var(--charcoal);
+    display:block;
+    transition: all .3s ease;
+  }
+  #nav-toggle{ display:none; }
+
+  /* ============================
+     HERO
+     ============================ */
+  .hero{
+    display:grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    min-height: 640px;
+  }
+  .hero-content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap: 26px;
+    padding: 80px 70px;
+  }
+  .hero-content h1{
+    font-size: clamp(44px, 5.4vw, 74px);
+    line-height: 1.05;
+    max-width: 620px;
+  }
+  .hero-content h1 em{
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-desc{
+    max-width: 460px;
+    font-size: 16.5px;
+    color: var(--charcoal-soft);
+  }
+  .hero-actions{ display:flex; gap:18px; margin-top: 8px; flex-wrap:wrap; align-items:center; }
+  .hero-actions .btn{ min-width: 0; }
+
+  .hero-visual{
+    display:flex;
+    align-items:flex-end;
+    padding: 60px;
+  }
+  .hero-visual .visual-panel{
+    width:100%; height: 100%;
+    min-height: 560px;
+    border-radius: var(--radius);
+    display:flex;
+    align-items:flex-end;
+    padding: 40px;
+  }
+  .hero-visual .monogram{ font-size: 130px; top: 30px; left: 40px; opacity:.85; }
+  .hero-caption{
+    position:relative; z-index:2;
+    color: var(--cream);
+  }
+  .hero-caption .eyebrow{ color: var(--gold-light); }
+  .hero-caption .eyebrow::before{ background: var(--gold-light); }
+  .hero-caption p{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    margin-top: 8px;
+    color: var(--cream);
+  }
+
+  /* ============================
+     SECTION HEADINGS (shared)
+     ============================ */
+  .section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap: 40px;
+    margin-bottom: 56px;
+  }
+  .section-head h2{ font-size: clamp(32px, 3.6vw, 46px); margin-top: 14px; }
+  .section-head .lede{
+    max-width: 340px;
+    color: var(--charcoal-soft);
+    font-size: 15px;
+    padding-bottom: 6px;
+  }
+  .section-pad{ padding: 110px 0; }
+
+  /* ============================
+     CATEGORY SECTION
+     ============================ */
+  .category-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .category-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper);
+    padding: 0;
+    overflow:hidden;
+    transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+    min-width: 0;
+  }
+  .category-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px -22px rgba(42,32,25,0.28);
+    border-color: var(--gold-light);
+  }
+  .category-card .visual-panel{ height: 200px; }
+  .category-card .cat-body{ padding: 26px 24px 30px; }
+  .category-card h3{ font-size: 22px; margin-bottom: 8px; }
+  .category-card p{ font-size: 14px; color: var(--charcoal-soft); }
+  .category-card .cat-link{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top: 16px;
+    font-family: var(--font-ui);
+    font-size: 12px; letter-spacing: 0.12em; text-transform:uppercase;
+    color: var(--gold);
+    font-weight:500;
+  }
+  .category-card .cat-link .arrow{ transition: transform .3s ease; }
+  .category-card:hover .cat-link .arrow{ transform: translateX(5px); }
+
+  /* palette variety across cards via monogram hue shift */
+  .category-card:nth-child(1) .visual-panel{ background: linear-gradient(155deg,#EAD7AE,#B98F52 55%,#5E4326); }
+  .category-card:nth-child(2) .visual-panel{ background: linear-gradient(155deg,#D9C6A3,#9C7A46 55%,#4C3620); }
+  .category-card:nth-child(3) .visual-panel{ background: linear-gradient(155deg,#E3D2AC,#AE8850 55%,#553B22); }
+  .category-card:nth-child(4) .visual-panel{ background: linear-gradient(155deg,#DECBA5,#A57F49 55%,#4F381F); }
+
+  /* ============================
+     SERVICES
+     ============================ */
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow:hidden;
+  }
+  .service-item{
+    background: var(--paper);
+    padding: 46px 44px;
+    display:flex;
+    gap: 22px;
+    min-width: 0;
+  }
+  .service-image{
+    flex: 0 0 112px;
+    width:112px;
+    height:112px;
+    object-fit:cover;
+    border-radius:var(--radius);
+  }
+  .service-icon{
+    flex-shrink:0;
+    width: 52px; height: 52px;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+  }
+  .service-item h3{ font-size: 21px; margin-bottom: 8px; }
+  .service-item p{ font-size: 14.5px; color: var(--charcoal-soft); }
+
+  /* ============================
+     ABOUT
+     ============================ */
+  .about{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items:center;
+  }
+  .about-visual{ padding: 0; height: 100%; }
+  .about-visual .visual-panel{ height: 100%; min-height: 560px; }
+  .about-visual .monogram{ font-size: 170px; bottom:-20px; right:-10px; top:auto; left:auto; opacity:.35; }
+  .about-content{ padding: 90px 70px; }
+  .about-content h2{ font-size: clamp(32px, 3.6vw, 48px); margin: 14px 0 24px; max-width: 480px; }
+  .about-content p{ color: var(--charcoal-soft); font-size: 16px; max-width: 500px; margin-bottom: 18px; }
+  .about-stats{
+    display:flex;
+    gap: 48px;
+    margin-top: 34px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+  .about-stats .stat-num{
+    font-family: var(--font-display);
+    font-size: 34px;
+    color: var(--gold);
+  }
+  .about-stats .stat-label{
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft);
+    margin-top: 4px;
+  }
+
+  /* ============================
+     CTA BAND
+     ============================ */
+  .cta-band{
+    background: var(--charcoal);
+    color: var(--cream);
+    text-align:center;
+    padding: 120px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 50% 0%, rgba(181,138,74,0.22), transparent 60%);
+  }
+  .cta-band .eyebrow{ color: var(--gold-light); justify-content:center; }
+  .cta-band .eyebrow::before{ background: var(--gold-light); }
+  .cta-band h2{
+    color: var(--cream);
+    font-size: clamp(34px, 5vw, 58px);
+    margin: 18px auto 34px;
+    max-width: 760px;
+    position:relative; z-index:2;
+  }
+  .cta-band h2 em{ color: var(--gold-light); font-style: italic; }
+  .cta-band .btn{ position:relative; z-index:2; }
+
+  /* ============================
+     FOOTER
+     ============================ */
+  .site-footer{
+    background: var(--cream-deep);
+    border-top: 1px solid var(--border);
+    padding: 80px 0 0;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+    gap: 40px;
+    padding-bottom: 60px;
+  }
+  .footer-brand .logo{ margin-bottom: 16px; }
+  .footer-brand p{ font-size: 14px; color: var(--charcoal-soft); max-width: 300px; }
+  .footer-social{ display:flex; gap:14px; margin-top: 22px; }
+  .footer-social a{
+    width: 36px; height:36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    color: var(--charcoal-soft);
+    transition: border-color .3s ease, color .3s ease, transform .3s ease;
+  }
+  .footer-social a:hover{ border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .footer-social svg{ width: 16px; height: 16px; fill: currentColor; display:block; }
+  .footer-col h4{
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .footer-col ul li{ margin-bottom: 12px; min-width: 0; }
+  .footer-col a, .footer-col address{
+    font-size: 14.5px;
+    color: var(--charcoal-soft);
+    font-style:normal;
+    transition: color .3s ease;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .footer-col a:hover{ color: var(--gold); }
+  .footer-bottom{
+    border-top: 1px solid var(--border);
+    padding: 26px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size: 12.5px;
+    color: var(--charcoal-soft);
+  }
+
+  .whatsapp-float{
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 30px rgba(18, 140, 58, 0.35);
+    z-index: 999;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+
+  .whatsapp-float:hover{
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 16px 36px rgba(18, 140, 58, 0.42);
+  }
+
+  .whatsapp-float svg{
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+    display: block;
+  }
+
+  .admin-shortcut{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 72px;
+    height: 72px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+    opacity: 0;
+    z-index: 997;
+    text-decoration: none;
+    color: transparent;
+    font-size: 0;
+  }
+  .admin-shortcut:hover,
+  .admin-shortcut:focus-visible{
+    opacity: 0.06;
+    background: var(--gold);
+    cursor: pointer;
+  }
+  .admin-shortcut:focus-visible{
+    outline: 1px dashed var(--gold);
+    outline-offset: -6px;
+    opacity: 0.12;
+  }
+
+  /* ============================
+     BOOKING MODAL
+     ============================ */
+  .booking-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(20,14,8,0.6);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .booking-overlay.is-open{ opacity:1; visibility:visible; }
+  .booking-modal{
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 520px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 40px 36px;
+    position: relative;
+    transform: translateY(16px);
+    transition: transform .3s ease;
+  }
+  .booking-overlay.is-open .booking-modal{ transform: translateY(0); }
+  .booking-close{
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 34px; height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    background: transparent;
+    color: var(--charcoal-soft);
+    font-size: 16px;
+    line-height: 1;
+    transition: border-color .3s ease, color .3s ease;
+  }
+  .booking-close:hover{ border-color: var(--gold); color: var(--gold); }
+  .booking-modal h3{ font-size: 30px; margin-bottom: 8px; padding-right: 30px; }
+  .booking-modal .booking-sub{ font-size: 14px; color: var(--charcoal-soft); margin-bottom: 28px; }
+  .booking-field{ margin-bottom: 18px; }
+  .booking-field label{
+    display:block;
+    font-family: var(--font-ui);
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft);
+    margin-bottom: 8px;
+  }
+  .booking-field input,
+  .booking-field select,
+  .booking-field textarea{
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: var(--charcoal);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px 14px;
+    transition: border-color .3s ease;
+  }
+  .booking-field input:focus,
+  .booking-field select:focus,
+  .booking-field textarea:focus{
+    outline: none;
+    border-color: var(--gold);
+  }
+  .booking-field textarea{ resize: vertical; min-height: 80px; }
+  .measurements-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+  .measurements-grid .booking-field{ margin-bottom:0; }
+  .booking-row{ display:flex; gap: 14px; }
+  .booking-row .booking-field{ flex:1; }
+  .booking-modal .btn{ width:100%; margin-top: 6px; border: none; }
+  .booking-note{
+    font-size: 12.5px;
+    color: var(--charcoal-soft);
+    margin-top: 14px;
+    text-align: center;
+  }
+  .booking-confirm{
+    display:none;
+    text-align:center;
+    padding: 20px 0 10px;
+  }
+  .booking-confirm.is-visible{ display:block; }
+  .booking-confirm .booking-check{
+    width: 52px; height:52px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 18px;
+    font-size: 22px;
+  }
+  .booking-confirm h3{ margin-bottom: 10px; }
+  .booking-confirm p{ font-size: 14px; color: var(--charcoal-soft); }
+  .booking-form.is-hidden{ display:none; }
+
+  /* ============================
+     CATALOG — EXPLORE 100+ DESIGNS
+     ============================ */
+  .catalog-toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 20px;
+    flex-wrap:wrap;
+    margin-bottom: 26px;
+  }
+  .catalog-search{ position:relative; flex: 1 1 320px; max-width: 420px; }
+  .catalog-search input{
+    width:100%;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: var(--charcoal);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px 16px 13px 42px;
+    transition: border-color .3s ease;
+  }
+  .catalog-search input:focus{ outline:none; border-color: var(--gold); }
+  .catalog-search::before{
+    content:"⌕";
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    color: var(--gold);
+    font-size: 17px;
+    pointer-events:none;
+  }
+  .catalog-quickfilters{ display:flex; gap:10px; flex-wrap:wrap; }
+  .qf-btn{
+    flex: 0 0 auto;
+    font-family: var(--font-ui);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--charcoal-soft);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 9px 18px;
+    transition: all .3s ease;
+    white-space:nowrap;
+  }
+  .qf-btn:hover{ border-color: var(--gold); color: var(--gold); }
+  .qf-btn.is-active{ background: var(--charcoal); border-color: var(--charcoal); color: var(--cream); }
+
+  .catalog-categories{
+    display:flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .catalog-categories::-webkit-scrollbar{ display:none; }
+  .cat-chip{
+    flex-shrink:0;
+    font-family: var(--font-ui);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: var(--charcoal-soft);
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 18px;
+    transition: all .3s ease;
+  }
+  .cat-chip:hover{ border-color: var(--gold-light); color: var(--charcoal); }
+  .cat-chip.is-active{ background: var(--gold-pale); border-color: var(--gold); color: var(--charcoal); font-weight:500; }
+
+  .catalog-count{
+    font-size: 12.5px;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+  }
+
+  .catalog-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .crafted-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .crafted-grid .design-card .visual-panel{ height: 250px; }
+  .crafted-grid .design-card .visual-panel .monogram{ font-size: 54px; bottom:16px; right:20px; top:auto; left:auto; opacity:.45; }
+  [data-crafted-fallback].is-hidden{ display:none; }
+
+  .product-price{
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-top: 8px;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  .product-actions{
+    display:flex;
+    gap:10px;
+    margin-top: auto;
+    padding-top: 14px;
+    flex-wrap: wrap;
+  }
+  .product-actions .btn{
+    padding: 11px 14px;
+    font-size: 11px;
+    letter-spacing: 0.11em;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .design-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition: transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+    min-width: 0;
+  }
+  .design-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px -22px rgba(42,32,25,0.28);
+    border-color: var(--gold-light);
+  }
+  .design-card .visual-panel{ height: 230px; }
+  .design-card .visual-panel img{ filter: saturate(1.02); }
+  .design-badges{ position:absolute; top:14px; left:14px; z-index:2; display:flex; gap:6px; flex-wrap:wrap; }
+  .design-badge{
+    font-family: var(--font-ui);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--charcoal);
+    background: rgba(250,246,238,0.92);
+    border: 1px solid var(--gold-light);
+    border-radius: 3px;
+    padding: 5px 9px;
+  }
+  .design-body{ padding: 22px 22px 24px; display:flex; flex-direction:column; flex:1; }
+  .design-meta{ display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+  .design-id{ font-family: var(--font-ui); font-size: 11px; letter-spacing: 0.08em; color: var(--gold); font-weight:500; }
+  .design-cat{ font-family: var(--font-ui); font-size: 10.5px; letter-spacing: 0.08em; text-transform:uppercase; color: var(--charcoal-soft); }
+  .design-body h3{ font-size: 19.5px; margin-bottom: 8px; }
+  .design-body p{ font-size: 13.5px; color: var(--charcoal-soft); margin-bottom: 18px; flex:1; }
+  .design-actions{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:10px;
+  }
+  .design-actions .btn{
+    min-width: 0;
+    padding: 11px 12px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align:center;
+    white-space: normal;
+  }
+
+  .catalog-empty{
+    text-align:center;
+    padding: 60px 20px;
+    color: var(--charcoal-soft);
+    font-size: 15px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+
+  .catalog-loadmore-wrap{ display:flex; justify-content:center; margin-top: 48px; }
+
+  .catalog-footnote{
+    text-align:center;
+    margin-top: 26px;
+    font-size: 13.5px;
+    color: var(--charcoal-soft);
+  }
+  .catalog-footnote a{ color: var(--gold); border-bottom: 1px solid var(--gold-light); padding-bottom: 1px; }
+
+  /* ============================
+     SHARED DIALOG MODALS
+     (design detail + stitching request)
+     ============================ */
+  .dialog-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(20,14,8,0.6);
+    backdrop-filter: blur(3px);
+    z-index: 1100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .dialog-overlay.is-open{ opacity:1; visibility:visible; }
+  .dialog-box{
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(16px);
+    transition: transform .3s ease;
+  }
+  .dialog-overlay.is-open .dialog-box{ transform: translateY(0); }
+  .dialog-close{
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 34px; height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--paper);
+    color: var(--charcoal-soft);
+    font-size: 16px;
+    line-height: 1;
+    z-index: 3;
+    transition: border-color .3s ease, color .3s ease;
+  }
+  .dialog-close:hover{ border-color: var(--gold); color: var(--gold); }
+
+  /* design detail modal */
+  #design-detail-overlay .dialog-box{ max-width: 760px; }
+  .detail-grid{ display:grid; grid-template-columns: 1fr 1fr; }
+  .detail-visual{ min-height: 100%; }
+  .detail-visual .visual-panel{ height:100%; min-height: 320px; }
+  .detail-body{ padding: 36px 34px; display:flex; flex-direction:column; }
+  .detail-body .design-id{ display:block; margin-bottom: 10px; }
+  .detail-body h3{ font-size: 30px; margin-bottom: 6px; }
+  .detail-cat{ font-family: var(--font-ui); font-size: 11.5px; letter-spacing: 0.12em; text-transform:uppercase; color: var(--charcoal-soft); margin-bottom: 18px; display:block; }
+  .detail-body p{ font-size: 14.5px; color: var(--charcoal-soft); margin-bottom: 14px; }
+  .detail-stitchinfo{
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    font-size: 13px;
+    color: var(--charcoal-soft);
+    margin-bottom: 24px;
+  }
+  .detail-stitchinfo strong{ color: var(--charcoal); font-weight:500; }
+  .detail-body .btn{ width:100%; margin-top:auto; }
+
+  /* stitching request modal (reuses booking-field look) */
+  #stitch-overlay .dialog-box{ max-width: 540px; padding: 40px 36px; }
+  .stitch-selected{
+    display:flex;
+    gap: 14px;
+    align-items:center;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 26px;
+  }
+  .stitch-selected .visual-panel{ width:56px; height:56px; border-radius: var(--radius); flex-shrink:0; }
+  .stitch-selected-name{ font-family: var(--font-display); font-size: 18px; }
+  .stitch-selected-id{ font-family: var(--font-ui); font-size: 11.5px; color: var(--gold); letter-spacing: 0.06em; }
+  #stitch-overlay .booking-field input,
+  #stitch-overlay .booking-field textarea{ width:100%; }
+
+  /* ============================
+     HOW IT WORKS
+     ============================ */
+  .steps-band{ background: var(--cream-deep); }
+  .steps-grid{
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+  }
+  .step-item{
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px 22px;
+    text-align:center;
+    transition: transform .4s ease, box-shadow .4s ease;
+    min-width: 0;
+  }
+  .step-item:hover{ transform: translateY(-5px); box-shadow: 0 20px 36px -22px rgba(42,32,25,0.26); }
+  .step-num{
+    width: 46px; height:46px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-light);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--gold);
+  }
+  .step-item h3{ font-size: 17.5px; margin-bottom: 8px; }
+  .step-item p{ font-size: 13px; color: var(--charcoal-soft); }
+
+  /* ============================
+     HAVE YOUR OWN DESIGN — UPLOAD
+     ============================ */
+  .upload-section{ background: var(--paper); }
+  .upload-grid{ display:grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items:flex-start; }
+  .upload-intro h2{ font-size: clamp(30px, 3.4vw, 42px); margin: 14px 0 20px; max-width: 420px; }
+  .upload-intro p{ font-size: 15.5px; color: var(--charcoal-soft); max-width: 420px; margin-bottom: 22px; }
+  .upload-points{ display:flex; flex-direction:column; gap: 14px; }
+  .upload-point{ display:flex; gap:12px; align-items:flex-start; font-size: 14px; color: var(--charcoal-soft); }
+  .upload-point-mark{ color: var(--gold); flex-shrink:0; }
+
+  .upload-form-card{
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 38px 36px;
+  }
+  .dropzone{
+    border: 1.5px dashed var(--gold-light);
+    border-radius: var(--radius);
+    background: var(--paper);
+    padding: 30px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition: border-color .3s ease, background .3s ease;
+    margin-bottom: 22px;
+  }
+  .dropzone:hover, .dropzone.is-dragover{ border-color: var(--gold); background: var(--gold-pale); }
+  .dropzone-icon{ font-size: 26px; color: var(--gold); margin-bottom: 10px; }
+  .dropzone-text{ font-size: 13.5px; color: var(--charcoal-soft); }
+  .dropzone-text strong{ color: var(--charcoal); font-weight:500; }
+  .dropzone-hint{ font-size: 11.5px; color: var(--charcoal-soft); margin-top: 6px; opacity:.8; }
+  .dropzone input[type="file"]{ display:none; }
+
+  .upload-preview{ display:none; align-items:center; gap: 14px; margin-bottom: 22px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--paper); }
+  .upload-preview.is-visible{ display:flex; }
+  .upload-preview img{ width:56px; height:56px; object-fit:cover; border-radius: var(--radius); flex-shrink:0; }
+  .upload-preview-name{ font-size: 13px; color: var(--charcoal); word-break: break-all; }
+  .upload-preview-remove{ margin-left:auto; background:transparent; border:none; color: var(--charcoal-soft); font-size:16px; flex-shrink:0; }
+  .upload-preview-remove:hover{ color: var(--gold); }
+
+  .upload-error{ display:none; font-size: 12.5px; color: #A5432B; margin: -12px 0 18px; }
+  .upload-error.is-visible{ display:block; }
+
+  .upload-note{
+    font-size: 12px;
+    color: var(--charcoal-soft);
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    line-height:1.6;
+  }
+  .upload-confirm{ display:none; text-align:center; padding: 10px 0; }
+  .upload-confirm.is-visible{ display:block; }
+  .upload-confirm .booking-check{ width:52px; height:52px; border-radius:50%; border:1px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:22px; }
+  .upload-confirm p{ font-size: 13.5px; color: var(--charcoal-soft); margin-top: 8px; }
+  .upload-form.is-hidden{ display:none; }
+
+  /* ============================
+     RESPONSIVE (must be LAST to override all base CSS)
+     ============================ */
+  @media (max-width: 1360px){
+    .main-nav ul{ gap: 26px; }
+    .main-nav a{ font-size: 12.5px; letter-spacing: 0.075em; }
+  }
+
+  @media (max-width: 1240px){
+    .main-nav ul{ gap: 20px; }
+    .main-nav a{ font-size: 12px; letter-spacing: 0.06em; }
+    .catalog-grid{ grid-template-columns: repeat(3, 1fr); }
+    .crafted-grid{ grid-template-columns: repeat(3, 1fr); }
+    .design-actions{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1200px){
+    .wrap{ padding: 0 28px; }
+
+    .main-nav{ display:none; }
+    .nav-toggle-label{ display:flex; }
+
+    #nav-toggle:checked ~ .header-inner .main-nav{
+      display:flex;
+      position:absolute;
+      top: 92px; left:0; right:0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 28px 28px;
+      z-index: 99;
+    }
+    #nav-toggle:checked ~ .header-inner .main-nav ul{
+      flex-direction:column;
+      align-items:flex-start;
+      gap: 22px;
+    }
+    #nav-toggle:checked ~ .header-inner .nav-toggle-label span:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+    #nav-toggle:checked ~ .header-inner .nav-toggle-label span:nth-child(2){ opacity:0; }
+    #nav-toggle:checked ~ .header-inner .nav-toggle-label span:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+    .hero-content{ padding: 70px 50px; }
+    .hero-visual{ padding: 50px; }
+    .steps-grid{ grid-template-columns: repeat(3, 1fr); }
+    .about-content{ padding: 70px 50px; }
+    .hero-content{ padding: 60px 44px; }
+    .hero-visual{ padding: 40px; }
+    .category-grid{ grid-template-columns: repeat(2, 1fr); }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .steps-grid{ grid-template-columns: repeat(3, 1fr); }
+    .catalog-grid{ grid-template-columns: repeat(3, 1fr); }
+    .crafted-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 1080px){
+    .hero-content{ padding: 60px 44px; }
+    .hero-visual{ padding: 40px; }
+    .category-grid{ grid-template-columns: repeat(2, 1fr); }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .catalog-grid{ grid-template-columns: repeat(3, 1fr); }
+    .crafted-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 880px){
+    .hero{ grid-template-columns: 1fr; }
+    .hero-visual{ order:-1; padding: 24px 24px 0; }
+    .hero-visual .visual-panel{ min-height: 320px; }
+    .hero-content{ padding: 48px 24px; text-align:left; }
+    .hero-actions{ width:100%; }
+    .hero-actions .btn{ flex:1; }
+
+    .section-pad{ padding: 80px 0; }
+    .section-head{ flex-direction:column; align-items:flex-start; gap: 18px; }
+    .section-head .lede{ max-width:none; padding-bottom: 0; }
+
+    .category-grid{ grid-template-columns: 1fr 1fr; }
+    .services-grid{ grid-template-columns: 1fr; }
+    .service-item{ padding: 36px 28px; }
+
+    .about{ grid-template-columns: 1fr; }
+    .about-visual .visual-panel{ min-height: 320px; }
+    .about-content{ padding: 56px 24px; }
+    .about-content h2, .about-content p{ max-width: none; }
+
+    .cta-band{ padding: 90px 24px; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+
+    .steps-grid{ grid-template-columns: repeat(2, 1fr); }
+    .catalog-grid{ grid-template-columns: repeat(2, 1fr); }
+    .crafted-grid{ grid-template-columns: repeat(2, 1fr); }
+    .catalog-toolbar{ flex-direction:column; align-items:stretch; }
+    .catalog-search{
+      width:100%;
+      max-width:none;
+      flex: 0 0 auto;
+    }
+    .catalog-quickfilters{
+      width:100%;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .catalog-quickfilters::-webkit-scrollbar{ display:none; }
+    .upload-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .upload-form-card{ padding: 30px 24px; }
+  }
+
+  @media (max-width: 760px){
+    .catalog-grid{ grid-template-columns: 1fr; }
+    .crafted-grid{ grid-template-columns: 1fr; }
+    .design-card .visual-panel{ height: 220px; }
+    #design-detail-overlay .dialog-box{ max-width: 480px; }
+    .detail-grid{ grid-template-columns: 1fr; }
+    .detail-visual .visual-panel{ min-height: 220px; }
+    .detail-body{ padding: 30px 26px; }
+  }
+
+  @media (max-width: 560px){
+    .wrap{ padding: 0 20px; }
+    .header-inner{ height: 76px; gap: 12px; }
+    .logo{ font-size: 21px; }
+    .header-cta .btn-primary{ padding: 10px 18px; font-size: 11.5px; }
+
+    .hero-content h1{ font-size: 38px; }
+    .hero-actions{ flex-direction:column; }
+    .hero-actions .btn{ flex: 1 1 auto; }
+    .hero-visual .monogram{ font-size: 90px; }
+
+    .category-grid{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 34px; }
+    .footer-bottom{ flex-direction:column; gap: 10px; text-align:center; }
+    .about-stats{ gap: 30px; flex-wrap:wrap; }
+
+    .steps-grid{ grid-template-columns: 1fr 1fr; }
+
+    .catalog-toolbar{ gap: 16px; margin-bottom: 22px; }
+    .catalog-search input{ padding: 13px 16px 13px 40px; }
+    .catalog-grid{ grid-template-columns: 1fr; gap: 18px; }
+    .crafted-grid{ grid-template-columns: 1fr; gap: 18px; }
+    .design-card .visual-panel{ height: 200px; }
+    .design-body{ padding: 16px 16px 18px; }
+    .design-body h3{ font-size: 17px; }
+    .design-body p{ display:none; }
+
+    .booking-modal{ padding: 32px 22px; }
+    .booking-row{ flex-direction:column; gap: 0; }
+    #stitch-overlay .dialog-box{ padding: 32px 22px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <input type="checkbox" id="nav-toggle" aria-hidden="true">
+    <div class="wrap header-inner">
+      <a href="#home" class="logo">PadmaPriya <span class="accent">Multi Choice</span></a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tailoring-essentials">Tailoring Essentials</a></li>
+          <li><a href="#designs">Designs</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#upload-design">Upload Design</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">Crafted With Care</span>
+        <h1>Designs Made <em>For You</em></h1>
+        <p class="hero-desc">
+          A premium Indian boutique bringing together custom tailoring, ladies clothing and
+          expert alterations — every piece shaped around the person who wears it.
+        </p>
+        <div class="hero-actions">
+          <a href="#tailoring-essentials" class="btn btn-primary">Explore Tailoring Essentials</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-panel">
+          <img data-image-key="hero" alt="Hero image" loading="eager">
+          <span class="monogram" aria-hidden="true">PP</span>
+          <div class="hero-caption">
+            <span class="eyebrow">Est. In Craft</span>
+            <p>Every stitch, a signature.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATEGORY SECTION ============ -->
+    <section class="section-pad" id="tailoring-essentials">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Tailoring Essentials</span>
+            <h2>Everything For Your Sewing Room</h2>
+          </div>
+          <p class="lede">Stock up on the trusted supplies and finishing details behind every beautifully made garment.</p>
+        </div>
+
+        <div class="category-grid"></div>
+        <p class="catalog-empty grid-loading">Loading tailoring essentials…</p>
+        <p class="catalog-empty grid-empty" hidden>No tailoring essentials yet. Add active products from the admin panel to populate this section.</p>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="stitch" aria-hidden="true"></div></div>
+
+    <!-- ============ CRAFTED BY US ============ -->
+    <section class="section-pad crafted-section" id="crafted-by-us">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Crafted By Us</span>
+            <h2>Featured Design Gallery</h2>
+          </div>
+          <p class="lede">A handpicked selection of our signature silhouettes — each one shaped around couture-level finish and a personal fit.</p>
+        </div>
+        <div class="crafted-grid" id="crafted-grid"></div>
+        <p class="catalog-empty grid-empty" hidden>No featured designs yet. Mark designs as Featured in the admin panel to display them here.</p>
+        <div class="catalog-loadmore-wrap">
+          <a href="#designs" class="btn btn-outline">View All Designs</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="stitch" aria-hidden="true"></div></div>
+
+    <!-- ============ EXPLORE 100+ DESIGNS ============ -->
+    <section class="section-pad catalog-section" id="designs">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">The Full Collection</span>
+            <h2>Explore 100+ Designs</h2>
+          </div>
+          <p class="lede">Browse our complete design catalog — pick a look and we'll stitch it to your exact measurements.</p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="catalog-search">
+            <input type="search" id="catalog-search-input" placeholder="Search by design name, category or ID...">
+          </div>
+          <div class="catalog-quickfilters" id="catalog-quickfilters">
+            <button type="button" class="qf-btn is-active" data-quick="all">All Designs</button>
+            <button type="button" class="qf-btn" data-quick="featured">Featured</button>
+            <button type="button" class="qf-btn" data-quick="new">New Arrivals</button>
+            <button type="button" class="qf-btn" data-quick="most-requested">Most Requested</button>
+            <button type="button" class="qf-btn" data-quick="bridal">Bridal Collection</button>
+          </div>
+        </div>
+
+        <div class="catalog-categories" id="catalog-categories">
+          <button type="button" class="cat-chip is-active" data-cat="All">All Categories</button>
+          <button type="button" class="cat-chip" data-cat="Saree Blouses">Saree Blouses</button>
+          <button type="button" class="cat-chip" data-cat="Kurti">Kurti</button>
+          <button type="button" class="cat-chip" data-cat="Chudidar / Salwar">Chudidar / Salwar</button>
+          <button type="button" class="cat-chip" data-cat="Dresses">Dresses</button>
+          <button type="button" class="cat-chip" data-cat="Bridal">Bridal</button>
+          <button type="button" class="cat-chip" data-cat="Party Wear">Party Wear</button>
+          <button type="button" class="cat-chip" data-cat="Kids Wear">Kids Wear</button>
+          <button type="button" class="cat-chip" data-cat="Men's Alterations">Men's Alterations</button>
+          <button type="button" class="cat-chip" data-cat="Trending Designs">Trending Designs</button>
+        </div>
+
+        <p class="catalog-count" id="catalog-count"></p>
+
+        <div class="catalog-grid" id="catalog-grid"></div>
+        <p class="catalog-empty" id="catalog-empty" hidden>No designs match your search. Try a different keyword or category.</p>
+
+        <div class="catalog-loadmore-wrap">
+          <button type="button" class="btn btn-outline" id="catalog-loadmore">Load More Designs</button>
+        </div>
+
+        <p class="catalog-footnote">Can't find exactly what you have in mind? <a href="#upload-design">Upload your own design instead →</a></p>
+      </div>
+    </section>
+
+    <div class="wrap"><div class="stitch" aria-hidden="true"></div></div>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section-pad steps-band">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Simple Process</span>
+            <h2>How It Works</h2>
+          </div>
+          <p class="lede">From browsing to wearing — five simple steps to your custom outfit.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-num">01</div>
+            <h3>Choose a Design</h3>
+            <p>Browse 100+ designs or upload one you already love.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">02</div>
+            <h3>Share Your Measurements</h3>
+            <p>Tell us your measurements so every piece fits exactly right.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">03</div>
+            <h3>Confirm Stitching Details</h3>
+            <p>Our team reaches out to confirm fabric, fit and timeline.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">04</div>
+            <h3>We Craft Your Outfit</h3>
+            <p>Skilled tailors stitch your piece with care and precision.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">05</div>
+            <h3>Collect / Receive Your Piece</h3>
+            <p>Pick up in-store or arrange delivery of your finished outfit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section-pad" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">What We Offer</span>
+            <h2>Our Services</h2>
+          </div>
+          <p class="lede">Four disciplines, one standard of craft — every service built around your fit.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-item">
+            <img class="service-image" data-image-key="service-custom-tailoring" alt="Custom tailoring service" loading="lazy">
+            <div>
+              <h3>Custom Tailoring</h3>
+              <p>Garments cut and stitched from scratch to your exact measurements and preferences.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <img class="service-image" data-image-key="service-alterations" alt="Alterations service" loading="lazy">
+            <div>
+              <h3>Perfect Alterations</h3>
+              <p>Resizing, refitting and repairs for ladies' and men's clothing, done with precision.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <img class="service-image" data-image-key="service-personalized-designs" alt="Personalized designs service" loading="lazy">
+            <div>
+              <h3>Personalized Designs</h3>
+              <p>One-on-one design consultations to bring your own vision to life, thread by thread.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <img class="service-image" data-image-key="service-essentials" alt="Tailoring essentials service" loading="lazy">
+            <div>
+              <h3>Tailoring Essentials</h3>
+              <p>A curated stock of threads, linings, buttons and trims for every finishing touch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HAVE YOUR OWN DESIGN ============ -->
+    <section class="section-pad upload-section" id="upload-design">
+      <div class="wrap">
+        <div class="upload-grid">
+          <div class="upload-intro">
+            <span class="eyebrow">Bring Your Vision</span>
+            <h2>Have Your Own Design?</h2>
+            <p>Already have a design you love? Upload it and we'll help bring it to life.</p>
+            <div class="upload-points">
+              <div class="upload-point"><span class="upload-point-mark">✓</span> Works from a photo, a sketch or a saved inspiration image</div>
+              <div class="upload-point"><span class="upload-point-mark">✓</span> Our team reviews your design and confirms feasibility with you</div>
+              <div class="upload-point"><span class="upload-point-mark">✓</span> Finished to your own measurements, just like any catalog piece</div>
+            </div>
+          </div>
+
+          <div class="upload-form-card">
+            <form class="upload-form" id="upload-form">
+              <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload design image">
+                <div class="dropzone-icon">⤒</div>
+                <div class="dropzone-text"><strong>Click to upload</strong> or drag and drop your design image here</div>
+                <div class="dropzone-hint">JPG, JPEG, PNG or WEBP — up to 8MB</div>
+                <input type="file" id="upload-file-input" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+              </div>
+
+              <div class="upload-preview" id="upload-preview">
+                <img id="upload-preview-img" src="" alt="Selected design preview">
+                <span class="upload-preview-name" id="upload-preview-name"></span>
+                <button type="button" class="upload-preview-remove" id="upload-preview-remove" aria-label="Remove selected file">✕</button>
+              </div>
+
+              <p class="upload-error" id="upload-error"></p>
+
+              <div class="booking-field">
+                <label for="upload-name">Full Name</label>
+                <input type="text" id="upload-name" name="name" required autocomplete="name">
+              </div>
+
+              <div class="booking-row">
+                <div class="booking-field">
+                  <label for="upload-phone">Phone Number</label>
+                  <input type="tel" id="upload-phone" name="phone" required autocomplete="tel">
+                </div>
+                <div class="booking-field">
+                  <label for="upload-email">Email</label>
+                  <input type="email" id="upload-email" name="email" autocomplete="email">
+                </div>
+              </div>
+
+              <div class="booking-field">
+                <label>Measurements</label>
+                <div class="measurements-grid">
+                  <div class="booking-field"><label for="upload-bust">Bust</label><input type="number" id="upload-bust" min="0" step="0.1" placeholder="Inches"></div>
+                  <div class="booking-field"><label for="upload-waist">Waist</label><input type="number" id="upload-waist" min="0" step="0.1" placeholder="Inches"></div>
+                  <div class="booking-field"><label for="upload-hip">Hip</label><input type="number" id="upload-hip" min="0" step="0.1" placeholder="Inches"></div>
+                  <div class="booking-field"><label for="upload-length">Length</label><input type="number" id="upload-length" min="0" step="0.1" placeholder="Inches"></div>
+                  <div class="booking-field"><label for="upload-shoulder">Shoulder</label><input type="number" id="upload-shoulder" min="0" step="0.1" placeholder="Inches"></div>
+                  <div class="booking-field"><label for="upload-sleeve">Sleeve</label><input type="number" id="upload-sleeve" min="0" step="0.1" placeholder="Inches"></div>
+                </div>
+              </div>
+
+              <div class="booking-field">
+                <label for="upload-requirements">Stitching Requirements</label>
+                <textarea id="upload-requirements" name="requirements" placeholder="Fabric, fit, timeline or any specific requests" required></textarea>
+              </div>
+
+              <div class="booking-field">
+                <label for="upload-instructions">Additional Instructions (optional)</label>
+                <textarea id="upload-instructions" name="instructions" placeholder="Anything else we should know"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Design for Stitching</button>
+
+              <p class="upload-note">Your image stays on your device — browsers can't attach files to an email automatically, so after submitting, please attach your image to the email that opens before sending it. After submitting your design, our team will contact you to confirm the stitching details.</p>
+            </form>
+
+            <div class="upload-confirm" id="upload-confirm">
+              <div class="booking-check">✓</div>
+              <h3>Details Sent</h3>
+              <p>Your information has been prepared in your email app. Please attach your design image to that email before hitting send — our team will then reach out to confirm stitching details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="about-visual">
+        <div class="visual-panel">
+          <img data-image-key="about" alt="Tailoring craftsmanship" loading="lazy">
+          <span class="monogram" aria-hidden="true">PP</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="eyebrow">Our Story</span>
+        <h2>Crafted Around You</h2>
+        <p>
+          At PadmaPriya Multi Choice, tailoring is never one-size-fits-all. Every garment
+          begins with a conversation — about how you move, what you love, and how you want
+          craftsmanship with a modern eye, so every piece that leaves our boutique carries
+          the same promise: quality construction, considered design, and a fit that's
+          entirely your own.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Years of Craft</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Made to Measure</div>
+          </div>
+          <div>
+            <div class="stat-num">4</div>
+            <div class="stat-label">Core Services</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-band">
+      <span class="eyebrow">Book Today</span>
+      <h2>Your Style. <em>Your Fit.</em> Your Choice.</h2>
+      <button type="button" class="btn btn-ghost-light" data-booking-open>Book a Service</button>
+    </section>
+
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/919008765431" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.02 2C6.5 2 2.03 6.47 2.03 12c0 1.77.46 3.5 1.34 5.02L2 22l5.11-1.34a9.96 9.96 0 0 0 4.91 1.26h.01c5.52 0 9.99-4.47 9.99-10S17.54 2 12.02 2zm0 18.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.53-3.69 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.28 3.79.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  </a>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="logo">PadmaPriya <span class="accent">Multi Choice</span></a>
+          <p>A premium Indian boutique for custom tailoring, ladies clothing, alterations
+             and tailoring essentials — designs made for you.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.6 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.048 1.066.06 1.405.06 4.122s-.012 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.048-1.405.06-4.122.06s-3.056-.012-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.013-3.056.06-4.122c.05-1.065.217-1.79.465-2.428A4.898 4.898 0 0 1 3.68 3.678 4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.363-.415 2.428-.465C8.944 2.012 9.283 2 12 2zm0 1.802c-2.67 0-2.987.01-4.04.059-.976.045-1.505.207-1.858.344-.466.181-.8.398-1.15.748-.35.35-.566.684-.748 1.15-.137.353-.3.882-.344 1.857-.048 1.054-.059 1.37-.059 4.04s.01 2.987.059 4.04c.045.976.207 1.505.344 1.858.182.466.399.8.748 1.15.35.35.684.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.059 4.041.059s2.987-.01 4.04-.059c.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.684.748-1.15.137-.353.3-.882.344-1.857.048-1.054.059-1.37.059-4.041s-.01-2.987-.059-4.04c-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 0 0-.748-1.15 3.098 3.098 0 0 0-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.054-.048-1.37-.059-4.041-.059zm0 3.063a5.135 5.135 0 1 1 0 10.27 5.135 5.135 0 0 1 0-10.27zm0 8.468a3.333 3.333 0 1 0 0-6.666 3.333 3.333 0 0 0 0 6.666zm6.538-8.671a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+            </a>
+          
+            <a href="https://wa.me/919008765431" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.02 2C6.5 2 2.03 6.47 2.03 12c0 1.77.46 3.5 1.34 5.02L2 22l5.11-1.34a9.96 9.96 0 0 0 4.91 1.26h.01c5.52 0 9.99-4.47 9.99-10S17.54 2 12.02 2zm0 18.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.53 3.69-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.81c0 4.53-3.69 8.23-8.23 8.23zm4.51-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.28 3.79.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#designs">Explore Designs</a></li>
+            <li><a href="#upload-design">Upload Your Design</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Custom Tailoring</a></li>
+            <li><a href="#services">Ladies Clothing</a></li>
+            <li><a href="#services">Alterations</a></li>
+            <li><a href="#services">Tailoring Essentials</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><address>759, 4th Main Rd, Koramangala Rd, Venkataswami Layout, Koramangala, Bengaluru, Karnataka 560030</address></li>
+            <li><a href="tel:+919008765431">+91 90087 65431</a></li>
+            <li><a href="mailto:padmapriyamultichoice@gmail.com">padmapriyamultichoice@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 PadmaPriya Multi Choice. All rights reserved.</span>
+        <span>Designs Made For You</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="booking-overlay" id="booking-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <div class="booking-modal">
+      <button type="button" class="booking-close" data-booking-close aria-label="Close booking form">✕</button>
+
+      <form class="booking-form" id="booking-form">
+        <h3 id="booking-title">Book a Service</h3>
+        <p class="booking-sub">Tell us what you need and we'll confirm your appointment shortly.</p>
+
+        <div class="booking-field">
+          <label for="booking-name">Full Name</label>
+          <input type="text" id="booking-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="booking-row">
+          <div class="booking-field">
+            <label for="booking-phone">Phone Number</label>
+            <input type="tel" id="booking-phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="booking-field">
+            <label for="booking-date">Preferred Date</label>
+            <input type="date" id="booking-date" name="date" required>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="booking-service">Service</label>
+          <select id="booking-service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Custom Tailoring">Custom Tailoring</option>
+            <option value="Ladies Clothing">Ladies Clothing</option>
+            <option value="Alterations">Alterations</option>
+            <option value="Tailoring Essentials">Tailoring Essentials</option>
+            <option value="Other">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div class="booking-field">
+          <label for="booking-message">Notes (optional)</label>
+          <textarea id="booking-message" name="message" placeholder="Tell us a little about what you're looking for..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Booking Request</button>
+        <p class="booking-note">We'll email you at padmapriyamultichoice@gmail.com to confirm.</p>
+      </form>
+
+      <div class="booking-confirm" id="booking-confirm">
+        <div class="booking-check">✓</div>
+        <h3>Request Sent</h3>
+        <p>Thank you! Your booking request has been prepared in your email app — just hit send and we'll be in touch shortly to confirm.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DESIGN DETAIL MODAL ============ -->
+  <div class="dialog-overlay" id="design-detail-overlay" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <div class="dialog-box">
+      <button type="button" class="dialog-close" data-detail-close aria-label="Close design details">✕</button>
+      <div class="detail-grid">
+        <div class="detail-visual">
+          <div class="visual-panel"><img id="detail-img" src="" alt=""></div>
+        </div>
+        <div class="detail-body">
+          <span class="design-id" id="detail-id"></span>
+          <h3 id="detail-title"></h3>
+          <span class="detail-cat" id="detail-cat"></span>
+          <p id="detail-desc"></p>
+          <div class="detail-stitchinfo"><strong>Stitching information:</strong> <span id="detail-stitch"></span></div>
+          <button type="button" class="btn btn-primary" id="detail-stitch-btn">Stitch This Design</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STITCH THIS DESIGN MODAL ============ -->
+  <div class="dialog-overlay" id="stitch-overlay" role="dialog" aria-modal="true" aria-labelledby="stitch-title">
+    <div class="dialog-box">
+      <button type="button" class="dialog-close" data-stitch-close aria-label="Close stitching request form">✕</button>
+
+      <form class="stitch-form" id="stitch-form">
+        <h3 id="stitch-title">Stitch This Design</h3>
+        <p class="booking-sub">Share your details and measurements and we'll confirm your order.</p>
+
+        <div class="stitch-selected">
+          <div class="visual-panel"><img id="stitch-selected-img" src="" alt=""></div>
+          <div>
+            <div class="stitch-selected-name" id="stitch-selected-name"></div>
+            <div class="stitch-selected-id" id="stitch-selected-id"></div>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="stitch-name">Customer Name</label>
+          <input type="text" id="stitch-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="booking-row">
+          <div class="booking-field">
+            <label for="stitch-phone">Phone Number</label>
+            <input type="tel" id="stitch-phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="booking-field">
+            <label for="stitch-email">Email</label>
+            <input type="email" id="stitch-email" name="email" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label>Measurements</label>
+          <div class="measurements-grid">
+            <div class="booking-field"><label for="stitch-bust">Bust</label><input type="number" id="stitch-bust" min="0" step="0.1" placeholder="Inches"></div>
+            <div class="booking-field"><label for="stitch-waist">Waist</label><input type="number" id="stitch-waist" min="0" step="0.1" placeholder="Inches"></div>
+            <div class="booking-field"><label for="stitch-hip">Hip</label><input type="number" id="stitch-hip" min="0" step="0.1" placeholder="Inches"></div>
+            <div class="booking-field"><label for="stitch-length">Length</label><input type="number" id="stitch-length" min="0" step="0.1" placeholder="Inches"></div>
+            <div class="booking-field"><label for="stitch-shoulder">Shoulder</label><input type="number" id="stitch-shoulder" min="0" step="0.1" placeholder="Inches"></div>
+            <div class="booking-field"><label for="stitch-sleeve">Sleeve</label><input type="number" id="stitch-sleeve" min="0" step="0.1" placeholder="Inches"></div>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="stitch-date">Preferred Stitching Date</label>
+          <input type="date" id="stitch-date" name="date" required>
+        </div>
+
+        <div class="booking-field">
+          <label for="stitch-instructions">Additional Instructions (optional)</label>
+          <textarea id="stitch-instructions" name="instructions" placeholder="Fabric preference, fit notes or anything else"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Stitching Request</button>
+        <p class="booking-note">We'll email you at padmapriyamultichoice@gmail.com to confirm.</p>
+      </form>
+
+      <div class="booking-confirm" id="stitch-confirm">
+        <div class="booking-check">✓</div>
+        <h3>Request Sent</h3>
+        <p>Thank you! Your stitching request has been prepared in your email app — just hit send and we'll be in touch shortly to confirm.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var overlay = document.getElementById('booking-overlay');
+      var form = document.getElementById('booking-form');
+      var confirmPanel = document.getElementById('booking-confirm');
+      var openTriggers = document.querySelectorAll('[data-booking-open]');
+      var closeTriggers = document.querySelectorAll('[data-booking-close]');
+      var navToggle = document.getElementById('nav-toggle');
+      var navLinks = document.querySelectorAll('.main-nav a');
+      var lastFocused = null;
+
+      navLinks.forEach(function(link){
+        link.addEventListener('click', function(){
+          navToggle.checked = false;
+        });
+      });
+
+      function openModal(e){
+        if(e) e.preventDefault();
+        lastFocused = document.activeElement;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        form.classList.remove('is-hidden');
+        confirmPanel.classList.remove('is-visible');
+        var firstField = document.getElementById('booking-name');
+        if(firstField){ setTimeout(function(){ firstField.focus(); }, 250); }
+      }
+
+      function closeModal(){
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        if(lastFocused){ lastFocused.focus(); }
+      }
+
+      openTriggers.forEach(function(btn){
+        btn.addEventListener('click', openModal);
+      });
+      closeTriggers.forEach(function(btn){
+        btn.addEventListener('click', closeModal);
+      });
+      overlay.addEventListener('click', function(e){
+        if(e.target === overlay){ closeModal(); }
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && overlay.classList.contains('is-open')){ closeModal(); }
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        var name = document.getElementById('booking-name').value.trim();
+        var phone = document.getElementById('booking-phone').value.trim();
+        var date = document.getElementById('booking-date').value;
+        var service = document.getElementById('booking-service').value;
+        var message = document.getElementById('booking-message').value.trim();
+
+        var subject = 'Booking Request: ' + service;
+        var bodyLines = [
+          'Name: ' + name,
+          'Phone: ' + phone,
+          'Preferred Date: ' + date,
+          'Service: ' + service,
+          'Notes: ' + (message || '—')
+        ];
+        var body = bodyLines.join('\n');
+        var mailtoLink = 'mailto:padmapriyamultichoice@gmail.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+
+        window.location.href = mailtoLink;
+
+        form.classList.add('is-hidden');
+        confirmPanel.classList.add('is-visible');
+        form.reset();
+      });
+    })();
+  </script>
+
+  <script>
+  (function(){
+
+    /* ============================================================
+      1. BACKEND DESIGN CATALOG DATA
+       ============================================================ */
+    var designs = [];
+
+    function badgeLabel(tag){
+      if(tag === 'featured') return 'Featured';
+      if(tag === 'new') return 'New Arrival';
+      if(tag === 'most-requested') return 'Most Requested';
+      if(tag === 'bridal') return 'Bridal Collection';
+      return '';
+    }
+
+    /* ============================================================
+       2. CATALOG STATE + RENDERING
+       ============================================================ */
+    var state = { category: 'All', quick: 'all', search: '', visible: 12 };
+    var STEP = 12;
+
+    var grid = document.getElementById('catalog-grid');
+    var countEl = document.getElementById('catalog-count');
+    var emptyEl = document.getElementById('catalog-empty');
+    var loadMoreBtn = document.getElementById('catalog-loadmore');
+    var searchInput = document.getElementById('catalog-search-input');
+    var quickFilterWrap = document.getElementById('catalog-quickfilters');
+    var categoryWrap = document.getElementById('catalog-categories');
+
+    function getFiltered(){
+      var term = state.search.trim().toLowerCase();
+      return designs.filter(function(d){
+        if(state.category !== 'All' && d.category !== state.category) return false;
+        if(state.quick !== 'all' && d.tags.indexOf(state.quick) === -1) return false;
+        if(term && d.name.toLowerCase().indexOf(term) === -1 && d.category.toLowerCase().indexOf(term) === -1 && d.id.toLowerCase().indexOf(term) === -1) return false;
+        return true;
+      });
+    }
+
+    function cardHTML(d){
+      var badges = d.tags.map(function(t){ return '<span class="design-badge">' + badgeLabel(t) + '</span>'; }).join('');
+      return '' +
+        '<article class="design-card" data-id="' + d.id + '">' +
+          '<div class="visual-panel design-visual">' +
+            (badges ? '<div class="design-badges">' + badges + '</div>' : '') +
+            (d.img ? '<img src="' + d.img + '" alt="' + d.name + '" loading="lazy">' : '') +
+          '</div>' +
+          '<div class="design-body">' +
+            '<div class="design-meta"><span class="design-id">' + d.id + '</span><span class="design-cat">' + d.category + '</span></div>' +
+            '<h3>' + d.name + '</h3>' +
+            '<p>' + d.desc + '</p>' +
+            '<div class="design-actions">' +
+              '<button type="button" class="btn btn-outline design-view" data-id="' + d.id + '">View Design</button>' +
+              '<button type="button" class="btn btn-primary design-stitch" data-id="' + d.id + '">Stitch This Design</button>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+    }
+
+    function render(){
+      var filtered = getFiltered();
+      var visible = filtered.slice(0, state.visible);
+
+      grid.innerHTML = visible.map(cardHTML).join('');
+      emptyEl.hidden = filtered.length !== 0;
+      grid.style.display = filtered.length === 0 ? 'none' : 'grid';
+
+      countEl.textContent = filtered.length === 0
+        ? ''
+        : 'Showing ' + visible.length + ' of ' + filtered.length + ' designs';
+
+      loadMoreBtn.style.display = state.visible >= filtered.length ? 'none' : 'inline-flex';
+    }
+
+    searchInput.addEventListener('input', function(){
+      state.search = searchInput.value;
+      state.visible = STEP;
+      render();
+    });
+
+    quickFilterWrap.addEventListener('click', function(e){
+      var btn = e.target.closest('.qf-btn');
+      if(!btn) return;
+      quickFilterWrap.querySelectorAll('.qf-btn').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      state.quick = btn.getAttribute('data-quick');
+      state.visible = STEP;
+      render();
+    });
+
+    categoryWrap.addEventListener('click', function(e){
+      var btn = e.target.closest('.cat-chip');
+      if(!btn) return;
+      categoryWrap.querySelectorAll('.cat-chip').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      state.category = btn.getAttribute('data-cat');
+      state.visible = STEP;
+      render();
+    });
+
+    loadMoreBtn.addEventListener('click', function(){
+      state.visible += STEP;
+      render();
+    });
+
+    window.PPMC_DESIGNS_REFRESH = function(incoming){
+      if(!Array.isArray(incoming) || incoming.length === 0) return;
+      var seen = {};
+      designs.forEach(function(d){ seen[String(d.id)] = true; });
+      incoming.forEach(function(d){
+        if(!d || !d.id) return;
+        if(!seen[String(d.id)]) designs.unshift(d);
+      });
+      state.visible = Math.max(state.visible, STEP);
+      render();
+    };
+
+    render();
+
+    /* ============================================================
+       3. DESIGN DETAIL MODAL
+       ============================================================ */
+    var detailOverlay = document.getElementById('design-detail-overlay');
+    var detailLastFocused = null;
+    var activeDesignId = null;
+
+    function findDesign(id){
+      for(var i = 0; i < designs.length; i++){ if(designs[i].id === id) return designs[i]; }
+      return null;
+    }
+
+    function openDetail(id){
+      var d = findDesign(id);
+      if(!d) return;
+      activeDesignId = id;
+      document.getElementById('detail-img').src = d.img;
+      document.getElementById('detail-img').alt = d.name;
+      document.getElementById('detail-id').textContent = d.id;
+      document.getElementById('detail-title').textContent = d.name;
+      document.getElementById('detail-cat').textContent = d.category;
+      document.getElementById('detail-desc').textContent = d.desc;
+      document.getElementById('detail-stitch').textContent = d.stitch;
+
+      detailLastFocused = document.activeElement;
+      detailOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetail(){
+      detailOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      if(detailLastFocused){ detailLastFocused.focus(); }
+    }
+
+    grid.addEventListener('click', function(e){
+      var viewBtn = e.target.closest('.design-view');
+      if(viewBtn){ openDetail(viewBtn.getAttribute('data-id')); return; }
+      var stitchBtn = e.target.closest('.design-stitch');
+      if(stitchBtn){ openStitch(stitchBtn.getAttribute('data-id')); return; }
+    });
+
+    detailOverlay.querySelectorAll('[data-detail-close]').forEach(function(btn){
+      btn.addEventListener('click', closeDetail);
+    });
+    detailOverlay.addEventListener('click', function(e){ if(e.target === detailOverlay) closeDetail(); });
+
+    document.getElementById('detail-stitch-btn').addEventListener('click', function(){
+      closeDetail();
+      openStitch(activeDesignId);
+    });
+
+    /* ============================================================
+       4. STITCH THIS DESIGN MODAL
+       ============================================================ */
+    var stitchOverlay = document.getElementById('stitch-overlay');
+    var stitchForm = document.getElementById('stitch-form');
+    var stitchConfirm = document.getElementById('stitch-confirm');
+    var stitchLastFocused = null;
+    var stitchDesign = null;
+
+    function openStitch(id){
+      var d = findDesign(id);
+      if(!d) return;
+      stitchDesign = d;
+      document.getElementById('stitch-selected-img').src = d.img;
+      document.getElementById('stitch-selected-img').alt = d.name;
+      document.getElementById('stitch-selected-name').textContent = d.name;
+      document.getElementById('stitch-selected-id').textContent = d.id + ' \u00b7 ' + d.category;
+
+      stitchForm.classList.remove('is-hidden');
+      stitchConfirm.classList.remove('is-visible');
+
+      stitchLastFocused = document.activeElement;
+      stitchOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      var firstField = document.getElementById('stitch-name');
+      if(firstField){ setTimeout(function(){ firstField.focus(); }, 250); }
+    }
+
+    function closeStitch(){
+      stitchOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      if(stitchLastFocused){ stitchLastFocused.focus(); }
+    }
+
+    stitchOverlay.querySelectorAll('[data-stitch-close]').forEach(function(btn){
+      btn.addEventListener('click', closeStitch);
+    });
+    stitchOverlay.addEventListener('click', function(e){ if(e.target === stitchOverlay) closeStitch(); });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key !== 'Escape') return;
+      if(detailOverlay.classList.contains('is-open')) closeDetail();
+      if(stitchOverlay.classList.contains('is-open')) closeStitch();
+    });
+
+    function readMeasurements(prefix){
+      var fields = ['bust', 'waist', 'hip', 'length', 'shoulder', 'sleeve'];
+      return fields.map(function(field){
+        var value = document.getElementById(prefix + '-' + field).value.trim();
+        return value ? field.charAt(0).toUpperCase() + field.slice(1) + ': ' + value + ' in' : '';
+      }).filter(Boolean).join(', ') || 'Not provided';
+    }
+
+    stitchForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!stitchDesign) return;
+
+      var name = document.getElementById('stitch-name').value.trim();
+      var phone = document.getElementById('stitch-phone').value.trim();
+      var email = document.getElementById('stitch-email').value.trim();
+      var measurements = readMeasurements('stitch');
+      var date = document.getElementById('stitch-date').value;
+      var instructions = document.getElementById('stitch-instructions').value.trim();
+
+      var subject = 'Stitching Request: ' + stitchDesign.name + ' (' + stitchDesign.id + ')';
+      var bodyLines = [
+        'Customer Name: ' + name,
+        'Phone: ' + phone,
+        'Email: ' + (email || '\u2014'),
+        'Selected Design: ' + stitchDesign.name,
+        'Design ID: ' + stitchDesign.id,
+        'Category: ' + stitchDesign.category,
+        'Measurements: ' + measurements,
+        'Preferred Stitching Date: ' + date,
+        'Additional Instructions: ' + (instructions || '\u2014')
+      ];
+      var body = bodyLines.join('\n');
+      var mailtoLink = 'mailto:padmapriyamultichoice@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+
+      stitchForm.classList.add('is-hidden');
+      stitchConfirm.classList.add('is-visible');
+      stitchForm.reset();
+    });
+
+    /* ============================================================
+       5. HAVE YOUR OWN DESIGN — UPLOAD FORM
+       ============================================================ */
+    var dropzone = document.getElementById('dropzone');
+    var fileInput = document.getElementById('upload-file-input');
+    var previewWrap = document.getElementById('upload-preview');
+    var previewImg = document.getElementById('upload-preview-img');
+    var previewName = document.getElementById('upload-preview-name');
+    var previewRemove = document.getElementById('upload-preview-remove');
+    var uploadError = document.getElementById('upload-error');
+    var uploadForm = document.getElementById('upload-form');
+    var uploadConfirm = document.getElementById('upload-confirm');
+
+    var ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+    var MAX_SIZE = 8 * 1024 * 1024; // 8MB
+    var selectedFile = null;
+
+    function showUploadError(msg){
+      uploadError.textContent = msg;
+      uploadError.classList.add('is-visible');
+    }
+    function clearUploadError(){
+      uploadError.textContent = '';
+      uploadError.classList.remove('is-visible');
+    }
+
+    function setPreview(file){
+      var reader = new FileReader();
+      reader.onload = function(ev){
+        previewImg.src = ev.target.result;
+        previewName.textContent = file.name;
+        previewWrap.classList.add('is-visible');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleFile(file){
+      clearUploadError();
+      if(!file){ return; }
+      if(ALLOWED_TYPES.indexOf(file.type) === -1){
+        showUploadError('Please upload a JPG, JPEG, PNG or WEBP image.');
+        selectedFile = null;
+        previewWrap.classList.remove('is-visible');
+        return;
+      }
+      if(file.size > MAX_SIZE){
+        showUploadError('That file is too large. Please upload an image under 8MB.');
+        selectedFile = null;
+        previewWrap.classList.remove('is-visible');
+        return;
+      }
+      selectedFile = file;
+      setPreview(file);
+    }
+
+    dropzone.addEventListener('click', function(){ fileInput.click(); });
+    dropzone.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }
+    });
+    fileInput.addEventListener('change', function(){
+      if(fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
+    });
+
+    ['dragenter','dragover'].forEach(function(evt){
+      dropzone.addEventListener(evt, function(e){
+        e.preventDefault(); e.stopPropagation();
+        dropzone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave','drop'].forEach(function(evt){
+      dropzone.addEventListener(evt, function(e){
+        e.preventDefault(); e.stopPropagation();
+        dropzone.classList.remove('is-dragover');
+      });
+    });
+    dropzone.addEventListener('drop', function(e){
+      var files = e.dataTransfer.files;
+      if(files && files[0]) handleFile(files[0]);
+    });
+
+    previewRemove.addEventListener('click', function(e){
+      e.stopPropagation();
+      selectedFile = null;
+      fileInput.value = '';
+      previewWrap.classList.remove('is-visible');
+      clearUploadError();
+    });
+
+    uploadForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      clearUploadError();
+
+      if(!selectedFile){
+        showUploadError('Please attach a design image before submitting.');
+        return;
+      }
+
+      var name = document.getElementById('upload-name').value.trim();
+      var phone = document.getElementById('upload-phone').value.trim();
+      var email = document.getElementById('upload-email').value.trim();
+      var measurements = readMeasurements('upload');
+      var requirements = document.getElementById('upload-requirements').value.trim();
+      var instructions = document.getElementById('upload-instructions').value.trim();
+
+      var subject = 'Custom Design Upload: ' + name;
+      var bodyLines = [
+        'Customer Name: ' + name,
+        'Phone: ' + phone,
+        'Email: ' + (email || '\u2014'),
+        'Uploaded File Name: ' + selectedFile.name + ' (please attach this image manually)',
+        'Measurements: ' + measurements,
+        'Stitching Requirements: ' + requirements,
+        'Additional Instructions: ' + (instructions || '\u2014')
+      ];
+      var body = bodyLines.join('\n');
+      var mailtoLink = 'mailto:padmapriyamultichoice@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
+
+      uploadForm.classList.add('is-hidden');
+      uploadConfirm.classList.add('is-visible');
+      uploadForm.reset();
+      selectedFile = null;
+      previewWrap.classList.remove('is-visible');
+    });
+
+  })();
+  </script>
+
+  <script type="module">
+  import {
+    supabase,
+    buildWhatsAppProductLink,
+    formatCurrency,
+    resolveImageUrlFromRow,
+    SUPABASE_URL,
+    STORAGE_BASE
+  } from './src/lib/supabase.js';
+
+  var DEFAULT_IMAGE_BUCKET = 'site_images';
+
+  function resolveImageUrl(row, fallback){
+    if(!row) return fallback || '';
+    var fromShared = resolveImageUrlFromRow(row, '');
+    if(fromShared) return fromShared;
+    var directUrl = (row.image_url || row.image || row.photo || row.photo_url || row.main_image || '').toString().trim();
+    var bucket = (row.bucket_name || row.bucket || DEFAULT_IMAGE_BUCKET).toString().trim();
+    if(directUrl.length > 0){
+      if(/^https?:\/\//i.test(directUrl)) return directUrl || fallback || '';
+      if(directUrl.indexOf('/') !== -1){
+        var pathParts = directUrl.replace(/^\/+/, '').split('/');
+        if(pathParts.length > 1){ bucket = pathParts.shift(); directUrl = pathParts.join('/'); }
+      }
+      return STORAGE_BASE + bucket + '/' + directUrl.replace(/^\/+/, '').split('/').map(encodeURIComponent).join('/');
+    }
+    var storagePath = row.storage_path || row.image_path || row.object_path;
+    if(typeof storagePath === 'string' && storagePath.length > 0){
+      var parts = storagePath.trim().replace(/^\/+/, '').split('/');
+      if(parts.length >= 2){
+        bucket = parts.shift();
+        return STORAGE_BASE + bucket + '/' + parts.join('/').split('/').map(encodeURIComponent).join('/');
+      }
+    }
+    return fallback || '';
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  /* ===== Section images (keep existing behaviour) ===== */
+  async function loadSectionImages(){
+    try {
+      var res = await supabase.from('site_images').select('*');
+      if(res.error){ console.warn('site_images fetch skipped:', res.error && res.error.message); return; }
+      (res.data || []).forEach(function(row){
+        if(row.active === false || row.is_active === false || row.is_published === false) return;
+        var key = row.section_key || row.key || row.slug || row.name;
+        var url = resolveImageUrl(row, '');
+        if(!key || !url) return;
+        document.querySelectorAll('[data-image-key]').forEach(function(image){
+          if(image.getAttribute('data-image-key') !== String(key)) return;
+          image.src = url.trim();
+          if(row.alt_text || row.alt) image.alt = row.alt_text || row.alt;
+          image.onerror = function(){ image.removeAttribute('src'); };
+        });
+      });
+    } catch(err) {
+      console.error('Unexpected error loading section images:', err);
+    }
+  }
+
+  /* ===== Products loaders ===== */
+  function resolveProductImage(row, fallback){
+    if(!row) return fallback || '';
+    var url = resolveImageUrl(row, '');
+    if(url) return url;
+    var key = row.image_key || row.section_key;
+    if(key) return '';
+    return fallback || '';
+  }
+
+  function isEssentialsProduct(p){
+    var name = String(p.name || '').toLowerCase();
+    var cat = String(p.category || '').toLowerCase();
+    var sub = String(p.subcategory || '').toLowerCase();
+    var essTerms = ['thread','lining','fall','lace','trim','cutter','trimmer','scissor','machine oil','essentials','sewing supply','tailoring essential'];
+    for(var i = 0; i < essTerms.length; i++){
+      var t = essTerms[i];
+      if(name.indexOf(t) !== -1 || cat.indexOf(t) !== -1 || sub.indexOf(t) !== -1) return true;
+    }
+    return false;
+  }
+
+  function setGridState(gridSelector, state, emptyText){
+    var section = document.querySelector(gridSelector) ? document.querySelector(gridSelector).parentElement : null;
+    if(!section) return;
+    var load = section.querySelector('.grid-loading');
+    var empty = section.querySelector('.grid-empty');
+    if(load) load.hidden = state !== 'loading';
+    if(empty){
+      empty.hidden = state !== 'empty';
+      if(emptyText && empty.textContent && empty.textContent.indexOf('Add') === -1) { /* keep copy */ }
+      if(emptyText && empty.hidden === false) empty.textContent = emptyText;
+    }
+  }
+
+  function renderEssentials(products){
+    var section = document.getElementById('tailoring-essentials');
+    var grid = section ? section.querySelector('.category-grid') : null;
+    if(!grid) return;
+    var list = products.slice(0, 8);
+    if(list.length === 0){
+      grid.innerHTML = '';
+      setGridState('#tailoring-essentials .category-grid', 'empty');
+      return;
+    }
+    var html = list.map(function(p, idx){
+      var img = resolveProductImage(p, '');
+      var desc = esc(p.description || 'Premium quality ' + esc(p.name) + ' for every tailoring project.');
+      var n = String(idx + 1).padStart(2, '0');
+      var monogram = '<span class="monogram">' + esc(n) + '</span>';
+      var imgEl = img
+        ? '<img src="' + esc(img) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.removeAttribute(\'src\')">'
+        : '';
+      var cat = esc(p.category || 'Essentials');
+      return '' +
+        '<article class="category-card">' +
+          '<div class="visual-panel">' + imgEl + monogram + '</div>' +
+          '<div class="cat-body">' +
+            '<span class="design-cat" style="margin-bottom:6px;display:block;">' + cat + '</span>' +
+            '<h3>' + esc(p.name) + '</h3>' +
+            '<p>' + desc + '</p>' +
+            '<div class="product-price">' + formatCurrency(p.price, 'On Request') + '</div>' +
+            '<a href="#designs" class="cat-link">Explore <span class="arrow">→</span></a>' +
+          '</div>' +
+        '</article>';
+    }).join('');
+    grid.innerHTML = html;
+    setGridState('#tailoring-essentials .category-grid', 'ready');
+  }
+
+  async function loadProductsFromSupabase(){
+    console.log('🛍  Loading products from Supabase...');
+    try {
+      var strategies = [
+        function(){
+          var q = supabase.from('products').select('*').eq('active', true);
+          try { q = q.order('created_at', { ascending: false }); } catch(_) {}
+          return q;
+        },
+        function(){
+          return supabase.from('products').select('*').eq('active', true);
+        },
+        function(){
+          return supabase.from('products').select('*');
+        }
+      ];
+      var data = null; var error = null;
+      for(var s = 0; s < strategies.length; s++){
+        try {
+          var res = await strategies[s]();
+          error = res && res.error;
+          if(!error){ data = res && res.data; break; }
+          if(error && (error.code === '42703' || /column .* does not exist/i.test(error.message || ''))){
+            console.warn('⚠️  Products strategy ' + (s+1) + ' skipped:', error.message);
+            continue;
+          }
+          break;
+        } catch(e){ error = null; }
+      }
+      if(error){
+        console.warn('Products fetch skipped — static content retained.', error && error.message);
+        return;
+      }
+      var rows = Array.isArray(data) ? data.filter(function(r){ return r && r.active !== false && r.is_active !== false; }) : [];
+      console.log('✅ Products returned:', rows.length);
+      if(rows.length === 0) return;
+
+      var essentials = rows.filter(function(r){ return isEssentialsProduct(r); });
+      if(essentials.length === 0) essentials = rows.slice(0, 7);
+      renderEssentials(essentials);
+    } catch(err){
+      console.error('Unexpected error loading products:', err);
+    }
+  }
+
+  /* ===== Designs (catalog + crafted by us) ===== */
+  function normalizeDesign(row, idx){
+    if(!row) return null;
+    var rawId = row.id !== undefined && row.id !== null ? row.id : idx + 1;
+    var title = (row.title || row.name || 'Design ' + rawId).toString().trim();
+    var occasion = (row.occasion || '').toString().trim();
+    var category = (row.category || row.type || row.design_type || 'Trending Designs').toString().trim();
+    var description = (row.description || row.desc || '').toString().trim();
+    if(!description){
+      if(category === 'Saree Blouses') description = 'A tailored blouse silhouette finished with precise darting and a couture-level fit.';
+      else if(category === 'Kurti') description = 'A relaxed yet refined kurti silhouette, cut for everyday comfort and elegance.';
+      else if(category === 'Bridal' || occasion === 'Bridal') description = 'A statement piece for your most important day, finished with couture-level detailing.';
+      else if(category === 'Party Wear' || occasion === 'Party') description = 'A festive silhouette built to stand out at celebrations and special occasions.';
+      else if(category === "Men's Alterations") description = 'Precise resizing and refitting for a sharper, more comfortable fit.';
+      else if(occasion === 'Everyday') description = 'An everyday silhouette refined for comfort and quiet polish.';
+      else description = 'A premium boutique silhouette shaped around the person who wears it.';
+    }
+    var stitch = (row.stitching_info || row.stitch_info || row.stitch_note || '').toString().trim();
+    if(!stitch){
+      if(occasion === 'Bridal' || category === 'Bridal') stitch = 'Multi-fitting bridal stitching with an in-person or video trial before final delivery. Ready in 3–5 weeks.';
+      else if(category === "Men's Alterations") stitch = 'Hand-finished alteration carried out to your marked fit points. Ready in 2–5 days.';
+      else stitch = 'Made-to-measure stitching with reinforced seams and a precise personal fit. Ready in 7–10 days.';
+    }
+    var id = (row.sku || row.code || row.design_id || ('PP-' + String(rawId).padStart(3, '0'))).toString().trim();
+    var tags = [];
+    if(row.featured === true || row.is_featured === true) tags.push('featured');
+    if(row.is_new === true || row.is_new_arrival === true || row.new === true) tags.push('new');
+    if(row.popular === true || row.is_popular === true || row.most_requested === true) tags.push('most-requested');
+    if(occasion === 'Bridal' || /bridal/i.test(category)) tags.push('bridal');
+    if(occasion === 'Wedding') tags.push('bridal');
+    var img = resolveImageUrl(row, '');
+    if(!img) return null;
+    return { id: id, name: title, category: category, occasion: occasion, img: img, desc: description, stitch: stitch, tags: tags };
+  }
+
+  function renderCraftedByUs(designs){
+    var grid = document.getElementById('crafted-grid');
+    if(!grid) return;
+    var featured = designs.filter(function(d){ return d && d.tags && d.tags.indexOf('featured') !== -1; }).slice(0, 8);
+    if(featured.length === 0){
+      grid.innerHTML = '';
+      setGridState('#crafted-grid', 'empty');
+      return;
+    }
+
+    var html = featured.map(function(d, idx){
+      var n = String(idx + 1).padStart(2, '0');
+      var badges = '';
+      if(d.occasion){
+        badges = '<div class="design-badges"><span class="design-badge">' + esc(d.occasion) + '</span></div>';
+      }
+      return '' +
+        '<article class="design-card">' +
+          '<div class="visual-panel">' +
+            '<img src="' + esc(d.img) + '" alt="' + esc(d.name) + '" loading="lazy" onerror="this.removeAttribute(\'src\')">' +
+            '<span class="monogram">' + esc(n) + '</span>' +
+            badges +
+          '</div>' +
+          '<div class="design-body">' +
+            '<span class="design-cat">' + esc(d.category) + '</span>' +
+            '<h3>' + esc(d.name) + '</h3>' +
+            '<p>' + esc(d.desc) + '</p>' +
+            '<div class="design-actions">' +
+              '<a href="#designs" class="btn btn-outline">View in Catalog</a>' +
+              '<a href="' + esc(buildWhatsAppProductLink(d.name)) + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Enquire</a>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+    }).join('');
+    grid.innerHTML = html;
+    setGridState('#crafted-grid', 'ready');
+  }
+
+  function renderDesignCategoryChips(categories){
+    var wrap = document.getElementById('catalog-categories');
+    if(!wrap || !categories || categories.length === 0) return;
+    var first = '<button type="button" class="cat-chip is-active" data-cat="All">All Categories</button>';
+    var rest = categories.map(function(c){
+      return '<button type="button" class="cat-chip" data-cat="' + esc(c.name) + '">' + esc(c.name) + '</button>';
+    }).join('');
+    wrap.innerHTML = first + rest;
+  }
+
+  async function loadDesignCategories(){
+    try {
+      var res = await supabase.from('design_categories').select('*').eq('active', true).order('name', { ascending: true });
+      if(res && !res.error && Array.isArray(res.data) && res.data.length > 0){
+        renderDesignCategoryChips(res.data);
+      }
+    } catch(_) { /* keep hardcoded chips */ }
+  }
+
+  async function loadDesignsFromSupabase(){
+    console.log('🔄 Loading designs from Supabase...');
+    try {
+      var data = null; var error = null;
+      var strategies = [
+        function tryWithCreatedAt(){
+          var q = supabase.from('designs').select('*');
+          try { q = q.order('created_at', { ascending: false }); } catch(_) {}
+          return q;
+        },
+        function tryWithIdDesc(){
+          var q = supabase.from('designs').select('*');
+          try { q = q.order('id', { ascending: false }); } catch(_) {}
+          return q;
+        },
+        function tryPlain(){ return supabase.from('designs').select('*'); }
+      ];
+      for(var s = 0; s < strategies.length; s++){
+        try {
+          var res = await strategies[s]();
+          error = res && res.error;
+          if(!error){ data = res && res.data; break; }
+          if(error && (
+            error.code === '42703' ||
+            /column .* does not exist/i.test(error.message || '') ||
+            /unsupported/i.test(error.message || '')
+          )){
+            console.warn('⚠️  Designs strategy ' + (s+1) + ' skipped:', error.message);
+            continue;
+          }
+          break;
+        } catch(tryErr) { error = null; }
+      }
+      if(error){
+        console.warn('Designs fetch — static content retained.', error && error.message);
+        return false;
+      }
+      if(!Array.isArray(data) || data.length === 0){
+        return false;
+      }
+      var normalized = [];
+      for(var i = 0; i < data.length; i++){
+        var row = data[i];
+        if(row.active === false || row.is_active === false || row.is_published === false) continue;
+        var n = normalizeDesign(row, i);
+        if(n) normalized.push(n);
+      }
+      if(normalized.length === 0) return false;
+      console.log('🎨 Design catalog:', normalized.length);
+      renderCraftedByUs(normalized);
+      if(typeof window.PPMC_DESIGNS_REFRESH === 'function'){
+        window.PPMC_DESIGNS_REFRESH(normalized);
+      }
+      return true;
+    } catch (err) {
+      console.error('Unexpected error loading designs:', err);
+      return false;
+    }
+  }
+
+  /* ===== Boot ===== */
+  function boot(){
+    loadSectionImages();
+    loadProductsFromSupabase();
+    loadDesignCategories();
+    loadDesignsFromSupabase();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
+</script>
+
+  <a class="admin-shortcut" href="admin-login.html" aria-label="Admin login" tabindex="0">Admin</a>
+
+</body>
+</html>
