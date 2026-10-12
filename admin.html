@@ -452,6 +452,40 @@
   .info-row .v{
     font-weight:600; color:var(--charcoal); word-break:break-word; text-align:right; min-width:0;
   }
+  .media-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:18px;
+  }
+  .media-card{
+    background:var(--cream); border:1px solid var(--border); border-radius:var(--radius); padding:12px;
+    box-shadow:var(--shadow); min-width:0;
+  }
+  .media-card img{
+    width:100%; height:170px; object-fit:cover; display:block; border-radius:2px; border:1px solid var(--border);
+    background:linear-gradient(135deg, #f4ebdb, #efe5cf);
+  }
+  .media-card .m-title{
+    display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; font-size:12px;
+    font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--charcoal-soft);
+  }
+  .media-card .m-meta{
+    margin-top:6px; font-size:12px; color:var(--charcoal-soft); word-break:break-word;
+  }
+  .media-form{
+    display:grid; gap:14px; margin-top:22px; padding-top:22px; border-top:1px solid var(--border);
+  }
+  .form-grid{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+  .field{ display:flex; flex-direction:column; }
+  .field.full{ grid-column:1 / -1; }
+  .input-file{
+    padding:10px 12px; background:var(--cream); border:1px solid var(--border); border-radius:var(--radius);
+    color:var(--charcoal); font-size:13px; min-width:0;
+  }
+  .media-preview{
+    display:none; padding:12px; border:1px dashed var(--border-strong); border-radius:var(--radius); background:var(--cream);
+    min-height:120px; align-items:center; justify-content:center;
+  }
+  .media-preview.is-visible{ display:flex; }
+  .media-preview img{ max-height:180px; object-fit:cover; border-radius:2px; }
 
   /* ==============================================================
      RESPONSIVE (must be last)
@@ -516,6 +550,9 @@
       </a>
       <a class="nav-link" data-nav="enquiries" href="#enquiries">
         <span class="nav-ico" aria-hidden="true">✉</span><span>Enquiries</span>
+      </a>
+      <a class="nav-link" data-nav="media" href="#media">
+        <span class="nav-ico" aria-hidden="true">◼</span><span>Brand Media</span>
       </a>
       <a class="nav-link" data-nav="settings" href="#settings">
         <span class="nav-ico" aria-hidden="true">⚙</span><span>Settings</span>
@@ -797,6 +834,48 @@
             <p>Enquiries created from future forms will appear here. Architecture is ready.</p>
           </div>
           <div class="pagination" data-enquiries-pagination></div>
+        </div>
+      </section>
+
+      <!-- ========== BRAND MEDIA ========== -->
+      <section data-section="media" hidden aria-labelledby="media-title">
+        <div class="page-head">
+          <div><div class="eyebrow">Brand visuals</div><h2 id="media-title">Brand Media</h2></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Homepage images</div>
+            <button class="btn btn-outline" data-media-refresh>Refresh</button>
+          </div>
+          <div class="media-grid" data-media-grid></div>
+          <form class="media-form" data-media-form>
+            <div class="form-grid">
+              <div class="field">
+                <label class="label" for="media-section">Image key</label>
+                <select class="select-input" id="media-section" data-media-key>
+                  <option value="hero">Hero</option>
+                  <option value="about">About</option>
+                  <option value="service-custom-tailoring">Custom Tailoring</option>
+                  <option value="service-alterations">Alterations</option>
+                  <option value="service-personalized-designs">Personalized Designs</option>
+                  <option value="service-essentials">Tailoring Essentials</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="label" for="media-alt">Alt text</label>
+                <input class="input-text" id="media-alt" data-media-alt type="text" placeholder="Describe the image for accessibility" />
+              </div>
+              <div class="field full">
+                <label class="label" for="media-file">Upload new image</label>
+                <input class="input-file" id="media-file" data-media-file type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" />
+              </div>
+            </div>
+            <div class="media-preview" data-media-preview></div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-primary" type="submit">Save image</button>
+              <button class="btn btn-outline" type="button" data-media-reset>Clear selection</button>
+            </div>
+          </form>
         </div>
       </section>
 

@@ -33,6 +33,15 @@ import { ensureActiveAdmin, logoutAdmin, getCurrentUser, getAdminRecord } from '
 
 const PRODUCTS_BUCKET = 'product-images';
 const DESIGNS_BUCKET  = 'design-images';
+const SITE_IMAGES_BUCKET = 'site_images';
+const SITE_IMAGE_SECTIONS = [
+  'hero',
+  'about',
+  'service-custom-tailoring',
+  'service-alterations',
+  'service-personalized-designs',
+  'service-essentials'
+];
 const PRICE_TYPES = ['fixed', 'request'];
 const STOCK_STATUS = ['in_stock','out_of_stock','made_to_order','available_on_request'];
 const DESIGN_OCCASIONS = ['Bridal','Wedding','Festive','Party','Everyday','Custom'];
@@ -47,6 +56,7 @@ let state = {
   products: [],
   designs: [],
   enquiries: [],
+  siteImages: [],
   stats: {
     totalProducts: 0, activeProducts: 0,
     totalDesigns: 0, activeDesigns: 0, featuredDesigns: 0
@@ -139,6 +149,7 @@ export async function showSection(name) {
       designs:   'Designs',
       categories:'Categories',
       enquiries: 'Enquiries',
+      media:     'Brand Media',
       settings:  'Settings'
     };
     main.textContent = titles[name] || name;
@@ -148,12 +159,13 @@ export async function showSection(name) {
   if (name === 'designs')    { await refreshDesigns();   renderDesigns(); }
   if (name === 'categories') { await refreshCategories();renderCategories(); }
   if (name === 'enquiries')  { await refreshEnquiries(); renderEnquiries(); }
+  if (name === 'media')      { await refreshSiteImages(); renderMediaSection(); }
   if (name === 'settings')   { renderSettings(); }
 }
 
 /* ========== Data loaders ========== */
 async function loadInitialData() {
-  await Promise.all([refreshCategories(), refreshProducts(), refreshDesigns(), refreshStats(), refreshEnquiries()]);
+  await Promise.all([refreshCategories(), refreshProducts(), refreshDesigns(), refreshStats(), refreshEnquiries(), refreshSiteImages()]);
 }
 
 async function refreshStats() {
@@ -236,6 +248,22 @@ async function refreshEnquiries() {
     return;
   }
   state.enquiries = r.data || [];
+}
+
+async function refreshSiteImages() {
+  const { data, error } = await supabase.from('site_images').select('*').order('section_key', { ascending: true });
+  if (error) {
+    if (isMissingTableError(error)) {
+      console.warn('site_images table is missing. Add it via supabase/fix-missing-tables.sql.', error);
+      showToast('The homepage media table is missing. Run the site image SQL fix before uploading a photo.', 'error');
+    } else {
+      console.warn('Unable to load site images:', error);
+      showToast('Unable to load homepage media.', 'error');
+    }
+    state.siteImages = [];
+    return;
+  }
+  state.siteImages = data || [];
 }
 
 /* ========== Dashboard ========== */
@@ -1468,6 +1496,166 @@ function renderEnquiries() {
 }
 
 /* ========== Settings ========== */
+function renderSettings() {
+  // identity already rendered at top; ensure settings section has them too
+  const email = document.querySelector('[data-settings-email]');
+  const role = document.querySelector('[data-settings-role]');
+  const status = document.querySelector('[data-settings-status]');
+  const since = document.querySelector('[data-settings-since]');
+  if (email) email.textContent = state.admin.email || state.user.email || '';
+  if (role) role.textContent = state.admin.role || 'admin';
+  if (status) {
+    status.textContent = state.admin.active ? 'Active' : 'Disabled';
+    status.style.color = state.admin.active ? '#2D7A47' : '#A5432B';
+    status.style.fontWeight = 600;
+  }
+  if (since) since.textContent = formatDate(state.admin.created_at);
+  const btn = document.querySelector('[data-settings-logout]');
+  if (btn && !btn._bound) {
+    btn._bound = true;
+    btn.addEventListener('click', async () => {
+      const ok = await confirmDialog('Sign out of the admin dashboard?', 'Log Out');
+      if (!ok) return;
+      await logoutAdmin();
+    });
+  }
+}
+
+function renderMediaSection() {
+  const grid = document.querySelector('[data-media-grid]');
+  const form = document.querySelector('[data-media-form]');
+  if (!grid) return;
+  const rows = state.siteImages || [];
+  const rowMap = new Map();
+  rows.forEach((row) => {
+    const key = String(row.section_key || row.key || row.slug || row.name || '').trim();
+    rowMap.set(key, row);
+  });
+  const cards = SITE_IMAGE_SECTIONS.map((key) => {
+    const row = rowMap.get(key) || null;
+    const url = row ? resolveImageUrlFromRow(row, '') : '';
+    const alt = row && (row.alt_text || row.alt) ? (row.alt_text || row.alt) : 'Homepage image';
+    return `
+      <div class="media-card">
+        <img src="${url || ''}" alt="${escapeHtml(alt)}" onerror="this.removeAttribute('src'); this.style.display='none';">
+        <div class="m-title">
+          <span>${escapeHtml(key)}</span>
+          <span class="pill ${row && row.active !== false ? 'pill-active' : 'pill-inactive'}">${row && row.active !== false ? 'Live' : 'Hidden'}</span>
+        </div>
+        <div class="m-meta">${url ? 'Image saved' : 'No image saved yet'}${row ? ' · ' + escapeHtml((row.alt_text || row.alt || '').slice(0, 48)) : ''}</div>
+      </div>
+    `;
+  }).join('');
+  grid.innerHTML = cards || '<div class="empty-state"><div class="es-title">No homepage images yet</div><p>Upload a hero or service photo to populate this section.</p></div>';
+
+  if (!form) return;
+  const keyEl = form.querySelector('[data-media-key]');
+  const altEl = form.querySelector('[data-media-alt]');
+  const fileEl = form.querySelector('[data-media-file]');
+  const preview = form.querySelector('[data-media-preview]');
+  const applySelection = () => {
+    const selected = keyEl.value;
+    const row = rowMap.get(selected) || null;
+    const url = row ? resolveImageUrlFromRow(row, '') : '';
+    altEl.value = row ? (row.alt_text || row.alt || '') : '';
+    if (preview) {
+      preview.classList.toggle('is-visible', Boolean(url));
+      preview.innerHTML = url ? `<img src="${url}" alt="${escapeHtml(selected)} preview" onerror="this.removeAttribute('src'); this.parentNode.classList.remove('is-visible');">` : '';
+    }
+    if (fileEl) fileEl.value = '';
+  };
+  if (!keyEl._mediaBound) {
+    keyEl._mediaBound = true;
+    keyEl.addEventListener('change', applySelection);
+  }
+  if (!form._mediaSubmitBound) {
+    form._mediaSubmitBound = true;
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const selectedKey = keyEl.value;
+      const selectedFile = fileEl.files && fileEl.files[0] ? fileEl.files[0] : null;
+      const alt = (altEl.value || '').trim();
+      if (!selectedKey) {
+        showToast('Choose an image slot first.', 'error');
+        return;
+      }
+      if (!selectedFile) {
+        const existingRow = rowMap.get(selectedKey);
+        if (!existingRow || !existingRow.image_url) {
+          showToast('Select an image file before saving.', 'error');
+          return;
+        }
+      }
+      const current = rowMap.get(selectedKey) || {};
+      try {
+        let path = current.image_url || selectedKey;
+        if (selectedFile) {
+          const fileCheck = validateImageFile(selectedFile);
+          if (!fileCheck.ok) {
+            showToast(fileCheck.reason, 'error');
+            return;
+          }
+          const extension = String(selectedFile.name.split('.').pop() || 'jpg').toLowerCase();
+          path = `${selectedKey}.${extension}`;
+          const upload = await supabase.storage.from(SITE_IMAGES_BUCKET).upload(path, selectedFile, {
+            cacheControl: '3600',
+            upsert: true
+          });
+          if (upload.error) {
+            console.error(upload.error);
+            showToast('Unable to upload the new image. Check the storage bucket and policies.', 'error');
+            return;
+          }
+        }
+        const payload = {
+          section_key: selectedKey,
+          name: selectedKey,
+          alt_text: alt || selectedKey,
+          image_url: path,
+          active: true,
+          updated_at: new Date().toISOString()
+        };
+        const { error } = await supabase.from('site_images').upsert(payload, { onConflict: 'section_key' });
+        if (error) {
+          console.error(error);
+          showToast('Unable to save the homepage image. Check the site_images table and RLS policy.', 'error');
+          return;
+        }
+        showToast('Homepage image saved successfully.', 'success');
+        form.reset();
+        await refreshSiteImages();
+        renderMediaSection();
+      } catch (error) {
+        console.error(error);
+        showToast('Unexpected error while saving the image.', 'error');
+      }
+    });
+  }
+  const resetButton = form.querySelector('[data-media-reset]');
+  if (resetButton && !resetButton._mediaResetBound) {
+    resetButton._mediaResetBound = true;
+    resetButton.addEventListener('click', () => {
+      form.reset();
+      if (fileEl) fileEl.value = '';
+      if (preview) {
+        preview.classList.remove('is-visible');
+        preview.innerHTML = '';
+      }
+      applySelection();
+    });
+  }
+  applySelection();
+
+  const refreshButton = document.querySelector('[data-media-refresh]');
+  if (refreshButton && !refreshButton._mediaRefreshBound) {
+    refreshButton._mediaRefreshBound = true;
+    refreshButton.addEventListener('click', async () => {
+      await refreshSiteImages();
+      renderMediaSection();
+    });
+  }
+}
+
 function renderSettings() {
   // identity already rendered at top; ensure settings section has them too
   const email = document.querySelector('[data-settings-email]');

@@ -119,6 +119,18 @@ CREATE TABLE IF NOT EXISTS public.enquiries (
   created_at    TIMESTAMPTZ DEFAULT now()
 );
 
+-- site_images — public section imagery used by homepage and marketing blocks
+CREATE TABLE IF NOT EXISTS public.site_images (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  section_key TEXT NOT NULL UNIQUE,
+  name        TEXT,
+  alt_text    TEXT,
+  image_url   TEXT,
+  active      BOOLEAN DEFAULT true,
+  created_at  TIMESTAMPTZ DEFAULT now(),
+  updated_at  TIMESTAMPTZ DEFAULT now()
+);
+
 -- --------------------------------------------------------------------------
 -- 3. INDICES
 -- --------------------------------------------------------------------------
@@ -149,6 +161,8 @@ CREATE INDEX IF NOT EXISTS enquiries_status_idx
   ON public.enquiries (status);
 CREATE INDEX IF NOT EXISTS enquiries_created_at_idx
   ON public.enquiries (created_at DESC);
+CREATE INDEX IF NOT EXISTS site_images_section_key_idx
+  ON public.site_images (section_key);
 
 -- --------------------------------------------------------------------------
 -- 4. MODDATETIME TRIGGERS — auto set updated_at on row UPDATE
@@ -171,6 +185,11 @@ FOR EACH ROW EXECUTE FUNCTION public.moddatetime();
 DROP TRIGGER IF EXISTS design_categories_moddatetime ON public.design_categories;
 CREATE TRIGGER design_categories_moddatetime
 BEFORE UPDATE ON public.design_categories
+FOR EACH ROW EXECUTE FUNCTION public.moddatetime();
+
+DROP TRIGGER IF EXISTS site_images_moddatetime ON public.site_images;
+CREATE TRIGGER site_images_moddatetime
+BEFORE UPDATE ON public.site_images
 FOR EACH ROW EXECUTE FUNCTION public.moddatetime();
 
 -- --------------------------------------------------------------------------
@@ -216,6 +235,7 @@ ALTER TABLE public.designs             ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.product_categories  ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.design_categories   ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.enquiries           ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.site_images         ENABLE ROW LEVEL SECURITY;
 
 -- --------------------------------------------------------------------------
 -- 7. RLS POLICIES
@@ -346,6 +366,30 @@ CREATE POLICY enquiries_update_admin ON public.enquiries
   FOR UPDATE
   USING (public.is_active_admin() = true)
   WITH CHECK (public.is_active_admin() = true);
+
+-- ~~~~~~~~~~~~~~~~~~~~
+-- 7.7 site_images
+-- ~~~~~~~~~~~~~~~~~~~~
+DROP POLICY IF EXISTS site_images_select_public ON public.site_images;
+CREATE POLICY site_images_select_public ON public.site_images
+  FOR SELECT
+  USING (active = true);
+
+DROP POLICY IF EXISTS site_images_insert_admin ON public.site_images;
+CREATE POLICY site_images_insert_admin ON public.site_images
+  FOR INSERT
+  WITH CHECK (public.is_active_admin() = true);
+
+DROP POLICY IF EXISTS site_images_update_admin ON public.site_images;
+CREATE POLICY site_images_update_admin ON public.site_images
+  FOR UPDATE
+  USING (public.is_active_admin() = true)
+  WITH CHECK (public.is_active_admin() = true);
+
+DROP POLICY IF EXISTS site_images_delete_admin ON public.site_images;
+CREATE POLICY site_images_delete_admin ON public.site_images
+  FOR DELETE
+  USING (public.is_active_admin() = true);
 
 -- ==========================================================================
 -- 8. STORAGE BUCKETS + OBJECT POLICIES — MANUAL DASHBOARD SETUP
